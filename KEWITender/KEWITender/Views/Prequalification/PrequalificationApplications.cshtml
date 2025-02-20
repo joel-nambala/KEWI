@@ -1,0 +1,82 @@
+﻿@model KEWITender.Models.Prequalification
+@{
+    ViewBag.Title = "Prequalification Applications";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@Url.Action("index", "dashboard")">Home</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="#">Dashboard</a>
+                <i class="fa fa-circle"></i>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            <button class="close" data-close="alert"></button>
+            <span>@TempData["Error"]</span>
+        </div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            <button class="close" data-close="alert"></button>
+            <span>@TempData["Success"]</span>
+        </div>
+    }
+    <!-- BEGIN PAGE TITLE
+    <h1 class="page-title">
+        NMK Tenders Portal
+    </h1>
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-settings font-red"></i>
+                        <span class="caption-subject font-red sbold uppercase">My Prequalification Applications</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="table-toolbar">
+                    </div>
+                    <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                        <thead>
+                            <tr>
+                                <th> #No </th>
+                                <th> Period </th>
+                                <th> Prequalified </th>
+                                <th> Categories </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.AppliedCategories)
+                            {
+                                <tr>
+                                    <td>@item.Counter</td>
+                                    <td>@item.Period</td>
+                                    <td>@item.Prequalified</td>
+                                    <td><a href="@Url.Action("periodcategories", "prequalification", new { period = item.Period})"><i class="fa fa-eye"></i><span class="text-info"> View</span></a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

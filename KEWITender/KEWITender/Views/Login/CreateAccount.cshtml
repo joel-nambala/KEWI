@@ -1,0 +1,139 @@
+﻿@model KEWITender.Models.Account
+@{
+    ViewBag.Title = "Create Account";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+<form class="login-form" autocomplete="off" action="@Url.Action("createaccount","login")" method="post" enctype="multipart/form-data">
+    <p>Enter Details To Create Account</p>
+    <div class="alert alert-danger display-hide">
+        <button class="close" data-close="alert"></button>
+        <span> Fill all the required fields </span>
+    </div>
+    <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">KRA Pin</label>
+        <div class="input-icon">
+            <i class="icon-lock"></i>
+            <input class="form-control placeholder-no-fix" type="Text" autocomplete="off" placeholder="KRA Pin" name="KRAPin" id="krapin" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">Company Name</label>
+        <div class="input-icon">
+            <i class="icon-note"></i>
+            <input class="form-control placeholder-no-fix" type="Text" autocomplete="off" placeholder="Company Name" name="CompanyName" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">Address</label>
+        <div class="input-icon">
+            <i class="fa fa-address-card"></i>
+            <input class="form-control placeholder-no-fix" type="Text" autocomplete="off" placeholder="Address" name="Address" id="address" />
+        </div>
+    </div>
+    <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">City</label>
+        <div class="input-icon">
+            <i class="fa fa-address-card"></i>
+            @Html.DropDownListFor(m => m.City, new SelectList(ViewBag.cities, "City", "City"), new { @class = "form-control", id = "city", required = "required" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Company Phone No</label>
+        <div class="input-icon">
+            <i class="fa fa-phone"></i>
+            <input class="form-control placeholder-no-fix" id="phyadd" type="Number" autocomplete="off" placeholder="Company Phone" name="CompanyPhone" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Company Email</label>
+        <div class="input-icon">
+            <i class="fa fa-envelope"></i>
+            <input class="form-control placeholder-no-fix" id="companyemail" type="email" autocomplete="off" placeholder="Company Email" name="CompanyEmail" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Contact Person</label>
+        <div class="input-icon">
+            <i class="icon-user"></i>
+            <input class="form-control placeholder-no-fix" id="postalcode" type="Text" autocomplete="off" placeholder="Contact Person" name="ContactPerson" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Contact No</label>
+        <div class="input-icon">
+            <i class="fa fa-phone"></i>
+            <input class="form-control placeholder-no-fix" id="contactphone" type="Number" autocomplete="off" placeholder="Contact No" name="ContactPhone" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Contact Email</label>
+        <div class="input-icon">
+            <i class="fa fa-envelope"></i>
+            <input class="form-control placeholder-no-fix" id="contactemail" type="email" autocomplete="off" placeholder="Contact Email" name="ContactEmail" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label">KRA Certificate</label>
+        <div class="input-icon">
+            <i class="icon-folder"></i>
+            <input class="form-control placeholder-no-fix" type="file" autocomplete="off" placeholder="KRA Certificate" id="kracert" name="KRACert" required accept="application/pdf" />
+        </div>
+    </div>
+    <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label">Certificate of Incorporation</label>
+        <div class="input-icon">
+            <i class="icon-folder"></i>
+            <input class="form-control placeholder-no-fix" type="file" autocomplete="off" placeholder="Certificate of Incorporation" id="incopcert" name="IncopCert" required accept="application/pdf" />
+        </div>
+    </div>
+    <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label">Tax Compliance Certificate</label>
+        <div class="input-icon">
+            <i class="icon-folder"></i>
+            <input class="form-control placeholder-no-fix" type="file" autocomplete="off" placeholder="Tax Compliance Certificate" id="compcert" name="CompCert" required accept="application/pdf" />
+        </div>
+    </div>
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="@Url.Action("index", "login")" class="btn green pull-left"> <i class="icon-home"></i> Back </a>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn green pull-right"> <i class="icon-login"></i> Submit </button>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- END LOGIN FORM -->
+<script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    //$('#companyemail').on('change', function () {
+    //    var pin = $('#companyemail').val();
+    //    $.ajax({
+    //        type: 'POST',
+    //        dataType: 'json',
+    //        data: { email: pin },
+    //        beforeSend: function () {
+    //            $("#loading").show();
+    //        },
+    //        url: '/login/validatepin',
+    //        success: function (result) {
+    //            $("#loading").hide();
+    //            if (result.length > 0) {
+    //                if (result == 'True') {
+    //                    alert('Email Address: ' + pin + ' is Already Registered!');
+    //                    $('#companyemail').val('');
+    //                }
+    //            }
+    //        }
+    //    })
+    //})
+</script>

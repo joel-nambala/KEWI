@@ -1,0 +1,90 @@
+﻿@model KEWIVendor.Models.Tender
+@{
+    ViewBag.Title = "Applied Tenders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@Url.Action("index", "dashboard")">Home</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="#">Dashboard</a>
+                <i class="fa fa-circle"></i>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            <button class="close" data-close="alert"></button>
+            <span>@TempData["Error"]</span>
+        </div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            <button class="close" data-close="alert"></button>
+            <span>@TempData["Success"]</span>
+        </div>
+    }
+    <!-- BEGIN PAGE TITLE
+    <h1 class="page-title">
+        NMK Tenders Portal
+    </h1>
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-settings font-red"></i>
+                        <span class="caption-subject font-red sbold uppercase">Quoted RFQs</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="table-toolbar">
+                    </div>
+                    <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                        <thead>
+                            <tr>
+                                <th> Bid No </th>
+                                <th> Tender No </th>
+                                <th> Description </th>
+                                <th> Application Date </th>
+                                <th> Opening Date </th>
+                                <th> Closing Date </th>
+                                <th> Status </th>
+                                <th> Details </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.AppliedTenders)
+                            {
+                                <tr>
+                                    <td>@item.BidNo</td>
+                                    <td>@item.TenderNo</td>
+                                    <td>@item.Description</td>
+                                    <td>@Convert.ToDateTime(item.Date).ToString("dd MMM yyyy")</td>
+                                    <td>@Convert.ToDateTime(item.OpeningDate).ToString("dd MMM yyyy")</td>
+                                    <td>@Convert.ToDateTime(item.ClosingDate).ToString("dd MMM yyyy")</td>
+                                    <td>@item.Status</td>
+                                    <td><a href="@Url.Action("bidlines", "opentenders", new { bidNo = item.BidNo})"><i class="fa fa-eye"></i><span class="text-info"> View</span></a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

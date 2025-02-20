@@ -1,0 +1,55 @@
+﻿@model KEWITender.Models.Tender
+@{
+    ViewBag.Title = "Open Tenders";
+    Layout = "~/Views/Shared/_Site.cshtml";
+}
+
+<div class="col-md-10">
+    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+    <div class="portlet light portlet-fit bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-settings font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Open Tenders</span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="table-toolbar">
+            </div>
+            <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                <thead>
+                    <tr>
+                        <th> Tender No </th>
+                        <th> Ref No </th>
+                        <th> Description </th>
+                        <th> Opening Date </th>
+                        <th> Closing Date </th>
+                        <th> Details </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OpenTenders)
+                    {
+                        <tr>
+                            <td>@item.TenderNo</td>
+                            <td>@item.RequisitionNo</td>
+                            <td>@item.Description</td>
+                            <td>@Convert.ToDateTime(item.OpeningDate).ToString("dd MMM yyyy")</td>
+                            <td>@Convert.ToDateTime(item.ClosingDate).ToString("dd MMM yyyy")</td>
+                            <td><a href="@Url.Action("tenderlines", "default", new { tenderNo = item.TenderNo})"><i class="fa fa-eye"></i><span class="text-info"> View</span></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END EXAMPLE TABLE PORTLET-->
+    <div class="row">
+        <div class="col-md-6">
+            <a href="@Url.Action("createaccount", "login")" class="btn btn-block blue pull-left"> <i class="icon-refresh"> Create Account</i></a>
+        </div>
+        <div class="col-md-6">
+            <a href="@Url.Action("index", "login")" class="btn btn-block red pull-right"> <i class="icon-login"> Login</i></a>
+        </div>
+    </div>
+</div>

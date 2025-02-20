@@ -1,0 +1,1748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/Procurement" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/Procurement" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/Procurement" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="ActivateBidderAccount">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="kraPin" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ActivateBidderAccount_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="AddedCategory">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AddedCategory_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="BidderLogin">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="kraPin" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="password" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="BidderLogin_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckPasswordChanged">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="kraPin" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckPasswordChanged_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckValidVatNo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckValidVatNo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckVendorPasswordChanged">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckVendorPasswordChanged_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateBidderAccount">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="kraPin" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="companyName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="address" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="companyPhone" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="companyEmail" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="contactPerson" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="contactEmail" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="city" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="sessionKey" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateBidderAccount_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="CreatePrequalificationLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="category" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreatePrequalificationLine_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="CreateRFQHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateRFQHeader_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateTenderPrequalificationHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="kraNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateTenderPrequalificationHeader_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="CreateTenderSubmissionHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bidderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateTenderSubmissionHeader_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateVendorPrequalificationHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateVendorPrequalificationHeader_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="DocumentAttachment">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="retNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="attachment" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tableId" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DocumentAttachment_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FileAttached">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FileAttached_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateRFQReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileNameFromApp" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateRFQReport_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GenerateTenderRFQReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileNameFromApp" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateTenderRFQReport_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetAppliedCategories">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAppliedCategories_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetBidderDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="kraPin" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetBidderDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCategoryName">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="category" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCategoryName_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCategoryRequirements">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="category" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCategoryRequirements_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCities">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetCities_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCurrentPrequalificationPeriod">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetCurrentPrequalificationPeriod_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLastEntry">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetLastEntry_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyAppliedCategories">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="period" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyAppliedCategories_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyBidLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bidderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyBidLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyBids">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bidderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyBids_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyPrequalificationApplications">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyPrequalificationApplications_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyQuoteLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="bidNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyQuoteLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyQuotes">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyQuotes_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetOpenBidderTenders">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetOpenBidderTenders_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetOpenTenderLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetOpenTenderLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetOpenTenders">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetOpenTenders_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetUnAppliedCategories">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetUnAppliedCategories_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetVendorDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetVendorDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetVendorName">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetVendorName_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasActivatedAccount">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="kraPin" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasActivatedAccount_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasAppliedForCategory">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="category" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasAppliedForCategory_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasAppliedForPrequalification">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasAppliedForPrequalification_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertRFQLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="bidNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="itemNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="quotedAmt" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertRFQLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertTenderSubmissionLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bidderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="bidNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="itemNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="quotedAmnt" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertTenderSubmissionLine_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForChangedPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="password" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForChangedPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForUnchangedPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForUnchangedPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="NotAllMandatoryDocumentsUploaded">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="category" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="NotAllMandatoryDocumentsUploaded_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PrequalificationApplied">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PrequalificationApplied_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RFQApplied">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RFQApplied_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SubmitBid">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bidderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="bidNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SubmitBid_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SubmitPrequalificationApplication">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vatNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SubmitPrequalificationApplication_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="SubmitRFQ">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="bidNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SubmitRFQ_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="TenderApplied">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bidderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="TenderApplied_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateBidderPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="kraPin" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="genpass" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateBidderPassword_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdateVendorPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="genpass" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateVendorPassword_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ValidBidderNo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="kraPin" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ValidBidderNo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="ActivateBidderAccount">
+    <part name="parameters" element="tns:ActivateBidderAccount" />
+  </message>
+  <message name="ActivateBidderAccount_Result">
+    <part name="parameters" element="tns:ActivateBidderAccount_Result" />
+  </message>
+  <message name="AddedCategory">
+    <part name="parameters" element="tns:AddedCategory" />
+  </message>
+  <message name="AddedCategory_Result">
+    <part name="parameters" element="tns:AddedCategory_Result" />
+  </message>
+  <message name="BidderLogin">
+    <part name="parameters" element="tns:BidderLogin" />
+  </message>
+  <message name="BidderLogin_Result">
+    <part name="parameters" element="tns:BidderLogin_Result" />
+  </message>
+  <message name="CheckPasswordChanged">
+    <part name="parameters" element="tns:CheckPasswordChanged" />
+  </message>
+  <message name="CheckPasswordChanged_Result">
+    <part name="parameters" element="tns:CheckPasswordChanged_Result" />
+  </message>
+  <message name="CheckValidVatNo">
+    <part name="parameters" element="tns:CheckValidVatNo" />
+  </message>
+  <message name="CheckValidVatNo_Result">
+    <part name="parameters" element="tns:CheckValidVatNo_Result" />
+  </message>
+  <message name="CheckVendorPasswordChanged">
+    <part name="parameters" element="tns:CheckVendorPasswordChanged" />
+  </message>
+  <message name="CheckVendorPasswordChanged_Result">
+    <part name="parameters" element="tns:CheckVendorPasswordChanged_Result" />
+  </message>
+  <message name="CreateBidderAccount">
+    <part name="parameters" element="tns:CreateBidderAccount" />
+  </message>
+  <message name="CreateBidderAccount_Result">
+    <part name="parameters" element="tns:CreateBidderAccount_Result" />
+  </message>
+  <message name="CreatePrequalificationLine">
+    <part name="parameters" element="tns:CreatePrequalificationLine" />
+  </message>
+  <message name="CreatePrequalificationLine_Result">
+    <part name="parameters" element="tns:CreatePrequalificationLine_Result" />
+  </message>
+  <message name="CreateRFQHeader">
+    <part name="parameters" element="tns:CreateRFQHeader" />
+  </message>
+  <message name="CreateRFQHeader_Result">
+    <part name="parameters" element="tns:CreateRFQHeader_Result" />
+  </message>
+  <message name="CreateTenderPrequalificationHeader">
+    <part name="parameters" element="tns:CreateTenderPrequalificationHeader" />
+  </message>
+  <message name="CreateTenderPrequalificationHeader_Result">
+    <part name="parameters" element="tns:CreateTenderPrequalificationHeader_Result" />
+  </message>
+  <message name="CreateTenderSubmissionHeader">
+    <part name="parameters" element="tns:CreateTenderSubmissionHeader" />
+  </message>
+  <message name="CreateTenderSubmissionHeader_Result">
+    <part name="parameters" element="tns:CreateTenderSubmissionHeader_Result" />
+  </message>
+  <message name="CreateVendorPrequalificationHeader">
+    <part name="parameters" element="tns:CreateVendorPrequalificationHeader" />
+  </message>
+  <message name="CreateVendorPrequalificationHeader_Result">
+    <part name="parameters" element="tns:CreateVendorPrequalificationHeader_Result" />
+  </message>
+  <message name="DocumentAttachment">
+    <part name="parameters" element="tns:DocumentAttachment" />
+  </message>
+  <message name="DocumentAttachment_Result">
+    <part name="parameters" element="tns:DocumentAttachment_Result" />
+  </message>
+  <message name="FileAttached">
+    <part name="parameters" element="tns:FileAttached" />
+  </message>
+  <message name="FileAttached_Result">
+    <part name="parameters" element="tns:FileAttached_Result" />
+  </message>
+  <message name="GenerateRFQReport">
+    <part name="parameters" element="tns:GenerateRFQReport" />
+  </message>
+  <message name="GenerateRFQReport_Result">
+    <part name="parameters" element="tns:GenerateRFQReport_Result" />
+  </message>
+  <message name="GenerateTenderRFQReport">
+    <part name="parameters" element="tns:GenerateTenderRFQReport" />
+  </message>
+  <message name="GenerateTenderRFQReport_Result">
+    <part name="parameters" element="tns:GenerateTenderRFQReport_Result" />
+  </message>
+  <message name="GetAppliedCategories">
+    <part name="parameters" element="tns:GetAppliedCategories" />
+  </message>
+  <message name="GetAppliedCategories_Result">
+    <part name="parameters" element="tns:GetAppliedCategories_Result" />
+  </message>
+  <message name="GetBidderDetails">
+    <part name="parameters" element="tns:GetBidderDetails" />
+  </message>
+  <message name="GetBidderDetails_Result">
+    <part name="parameters" element="tns:GetBidderDetails_Result" />
+  </message>
+  <message name="GetCategoryName">
+    <part name="parameters" element="tns:GetCategoryName" />
+  </message>
+  <message name="GetCategoryName_Result">
+    <part name="parameters" element="tns:GetCategoryName_Result" />
+  </message>
+  <message name="GetCategoryRequirements">
+    <part name="parameters" element="tns:GetCategoryRequirements" />
+  </message>
+  <message name="GetCategoryRequirements_Result">
+    <part name="parameters" element="tns:GetCategoryRequirements_Result" />
+  </message>
+  <message name="GetCities">
+    <part name="parameters" element="tns:GetCities" />
+  </message>
+  <message name="GetCities_Result">
+    <part name="parameters" element="tns:GetCities_Result" />
+  </message>
+  <message name="GetCurrentPrequalificationPeriod">
+    <part name="parameters" element="tns:GetCurrentPrequalificationPeriod" />
+  </message>
+  <message name="GetCurrentPrequalificationPeriod_Result">
+    <part name="parameters" element="tns:GetCurrentPrequalificationPeriod_Result" />
+  </message>
+  <message name="GetLastEntry">
+    <part name="parameters" element="tns:GetLastEntry" />
+  </message>
+  <message name="GetLastEntry_Result">
+    <part name="parameters" element="tns:GetLastEntry_Result" />
+  </message>
+  <message name="GetMyAppliedCategories">
+    <part name="parameters" element="tns:GetMyAppliedCategories" />
+  </message>
+  <message name="GetMyAppliedCategories_Result">
+    <part name="parameters" element="tns:GetMyAppliedCategories_Result" />
+  </message>
+  <message name="GetMyBidLines">
+    <part name="parameters" element="tns:GetMyBidLines" />
+  </message>
+  <message name="GetMyBidLines_Result">
+    <part name="parameters" element="tns:GetMyBidLines_Result" />
+  </message>
+  <message name="GetMyBids">
+    <part name="parameters" element="tns:GetMyBids" />
+  </message>
+  <message name="GetMyBids_Result">
+    <part name="parameters" element="tns:GetMyBids_Result" />
+  </message>
+  <message name="GetMyPrequalificationApplications">
+    <part name="parameters" element="tns:GetMyPrequalificationApplications" />
+  </message>
+  <message name="GetMyPrequalificationApplications_Result">
+    <part name="parameters" element="tns:GetMyPrequalificationApplications_Result" />
+  </message>
+  <message name="GetMyQuoteLines">
+    <part name="parameters" element="tns:GetMyQuoteLines" />
+  </message>
+  <message name="GetMyQuoteLines_Result">
+    <part name="parameters" element="tns:GetMyQuoteLines_Result" />
+  </message>
+  <message name="GetMyQuotes">
+    <part name="parameters" element="tns:GetMyQuotes" />
+  </message>
+  <message name="GetMyQuotes_Result">
+    <part name="parameters" element="tns:GetMyQuotes_Result" />
+  </message>
+  <message name="GetOpenBidderTenders">
+    <part name="parameters" element="tns:GetOpenBidderTenders" />
+  </message>
+  <message name="GetOpenBidderTenders_Result">
+    <part name="parameters" element="tns:GetOpenBidderTenders_Result" />
+  </message>
+  <message name="GetOpenTenderLines">
+    <part name="parameters" element="tns:GetOpenTenderLines" />
+  </message>
+  <message name="GetOpenTenderLines_Result">
+    <part name="parameters" element="tns:GetOpenTenderLines_Result" />
+  </message>
+  <message name="GetOpenTenders">
+    <part name="parameters" element="tns:GetOpenTenders" />
+  </message>
+  <message name="GetOpenTenders_Result">
+    <part name="parameters" element="tns:GetOpenTenders_Result" />
+  </message>
+  <message name="GetUnAppliedCategories">
+    <part name="parameters" element="tns:GetUnAppliedCategories" />
+  </message>
+  <message name="GetUnAppliedCategories_Result">
+    <part name="parameters" element="tns:GetUnAppliedCategories_Result" />
+  </message>
+  <message name="GetVendorDetails">
+    <part name="parameters" element="tns:GetVendorDetails" />
+  </message>
+  <message name="GetVendorDetails_Result">
+    <part name="parameters" element="tns:GetVendorDetails_Result" />
+  </message>
+  <message name="GetVendorName">
+    <part name="parameters" element="tns:GetVendorName" />
+  </message>
+  <message name="GetVendorName_Result">
+    <part name="parameters" element="tns:GetVendorName_Result" />
+  </message>
+  <message name="HasActivatedAccount">
+    <part name="parameters" element="tns:HasActivatedAccount" />
+  </message>
+  <message name="HasActivatedAccount_Result">
+    <part name="parameters" element="tns:HasActivatedAccount_Result" />
+  </message>
+  <message name="HasAppliedForCategory">
+    <part name="parameters" element="tns:HasAppliedForCategory" />
+  </message>
+  <message name="HasAppliedForCategory_Result">
+    <part name="parameters" element="tns:HasAppliedForCategory_Result" />
+  </message>
+  <message name="HasAppliedForPrequalification">
+    <part name="parameters" element="tns:HasAppliedForPrequalification" />
+  </message>
+  <message name="HasAppliedForPrequalification_Result">
+    <part name="parameters" element="tns:HasAppliedForPrequalification_Result" />
+  </message>
+  <message name="InsertRFQLines">
+    <part name="parameters" element="tns:InsertRFQLines" />
+  </message>
+  <message name="InsertRFQLines_Result">
+    <part name="parameters" element="tns:InsertRFQLines_Result" />
+  </message>
+  <message name="InsertTenderSubmissionLine">
+    <part name="parameters" element="tns:InsertTenderSubmissionLine" />
+  </message>
+  <message name="InsertTenderSubmissionLine_Result">
+    <part name="parameters" element="tns:InsertTenderSubmissionLine_Result" />
+  </message>
+  <message name="LoginForChangedPassword">
+    <part name="parameters" element="tns:LoginForChangedPassword" />
+  </message>
+  <message name="LoginForChangedPassword_Result">
+    <part name="parameters" element="tns:LoginForChangedPassword_Result" />
+  </message>
+  <message name="LoginForUnchangedPassword">
+    <part name="parameters" element="tns:LoginForUnchangedPassword" />
+  </message>
+  <message name="LoginForUnchangedPassword_Result">
+    <part name="parameters" element="tns:LoginForUnchangedPassword_Result" />
+  </message>
+  <message name="NotAllMandatoryDocumentsUploaded">
+    <part name="parameters" element="tns:NotAllMandatoryDocumentsUploaded" />
+  </message>
+  <message name="NotAllMandatoryDocumentsUploaded_Result">
+    <part name="parameters" element="tns:NotAllMandatoryDocumentsUploaded_Result" />
+  </message>
+  <message name="PrequalificationApplied">
+    <part name="parameters" element="tns:PrequalificationApplied" />
+  </message>
+  <message name="PrequalificationApplied_Result">
+    <part name="parameters" element="tns:PrequalificationApplied_Result" />
+  </message>
+  <message name="RFQApplied">
+    <part name="parameters" element="tns:RFQApplied" />
+  </message>
+  <message name="RFQApplied_Result">
+    <part name="parameters" element="tns:RFQApplied_Result" />
+  </message>
+  <message name="SubmitBid">
+    <part name="parameters" element="tns:SubmitBid" />
+  </message>
+  <message name="SubmitBid_Result">
+    <part name="parameters" element="tns:SubmitBid_Result" />
+  </message>
+  <message name="SubmitPrequalificationApplication">
+    <part name="parameters" element="tns:SubmitPrequalificationApplication" />
+  </message>
+  <message name="SubmitPrequalificationApplication_Result">
+    <part name="parameters" element="tns:SubmitPrequalificationApplication_Result" />
+  </message>
+  <message name="SubmitRFQ">
+    <part name="parameters" element="tns:SubmitRFQ" />
+  </message>
+  <message name="SubmitRFQ_Result">
+    <part name="parameters" element="tns:SubmitRFQ_Result" />
+  </message>
+  <message name="TenderApplied">
+    <part name="parameters" element="tns:TenderApplied" />
+  </message>
+  <message name="TenderApplied_Result">
+    <part name="parameters" element="tns:TenderApplied_Result" />
+  </message>
+  <message name="UpdateBidderPassword">
+    <part name="parameters" element="tns:UpdateBidderPassword" />
+  </message>
+  <message name="UpdateBidderPassword_Result">
+    <part name="parameters" element="tns:UpdateBidderPassword_Result" />
+  </message>
+  <message name="UpdateVendorPassword">
+    <part name="parameters" element="tns:UpdateVendorPassword" />
+  </message>
+  <message name="UpdateVendorPassword_Result">
+    <part name="parameters" element="tns:UpdateVendorPassword_Result" />
+  </message>
+  <message name="ValidBidderNo">
+    <part name="parameters" element="tns:ValidBidderNo" />
+  </message>
+  <message name="ValidBidderNo_Result">
+    <part name="parameters" element="tns:ValidBidderNo_Result" />
+  </message>
+  <portType name="Procurement_Port">
+    <operation name="ActivateBidderAccount">
+      <input name="ActivateBidderAccount" message="tns:ActivateBidderAccount" />
+      <output name="ActivateBidderAccount_Result" message="tns:ActivateBidderAccount_Result" />
+    </operation>
+    <operation name="AddedCategory">
+      <input name="AddedCategory" message="tns:AddedCategory" />
+      <output name="AddedCategory_Result" message="tns:AddedCategory_Result" />
+    </operation>
+    <operation name="BidderLogin">
+      <input name="BidderLogin" message="tns:BidderLogin" />
+      <output name="BidderLogin_Result" message="tns:BidderLogin_Result" />
+    </operation>
+    <operation name="CheckPasswordChanged">
+      <input name="CheckPasswordChanged" message="tns:CheckPasswordChanged" />
+      <output name="CheckPasswordChanged_Result" message="tns:CheckPasswordChanged_Result" />
+    </operation>
+    <operation name="CheckValidVatNo">
+      <input name="CheckValidVatNo" message="tns:CheckValidVatNo" />
+      <output name="CheckValidVatNo_Result" message="tns:CheckValidVatNo_Result" />
+    </operation>
+    <operation name="CheckVendorPasswordChanged">
+      <input name="CheckVendorPasswordChanged" message="tns:CheckVendorPasswordChanged" />
+      <output name="CheckVendorPasswordChanged_Result" message="tns:CheckVendorPasswordChanged_Result" />
+    </operation>
+    <operation name="CreateBidderAccount">
+      <input name="CreateBidderAccount" message="tns:CreateBidderAccount" />
+      <output name="CreateBidderAccount_Result" message="tns:CreateBidderAccount_Result" />
+    </operation>
+    <operation name="CreatePrequalificationLine">
+      <input name="CreatePrequalificationLine" message="tns:CreatePrequalificationLine" />
+      <output name="CreatePrequalificationLine_Result" message="tns:CreatePrequalificationLine_Result" />
+    </operation>
+    <operation name="CreateRFQHeader">
+      <input name="CreateRFQHeader" message="tns:CreateRFQHeader" />
+      <output name="CreateRFQHeader_Result" message="tns:CreateRFQHeader_Result" />
+    </operation>
+    <operation name="CreateTenderPrequalificationHeader">
+      <input name="CreateTenderPrequalificationHeader" message="tns:CreateTenderPrequalificationHeader" />
+      <output name="CreateTenderPrequalificationHeader_Result" message="tns:CreateTenderPrequalificationHeader_Result" />
+    </operation>
+    <operation name="CreateTenderSubmissionHeader">
+      <input name="CreateTenderSubmissionHeader" message="tns:CreateTenderSubmissionHeader" />
+      <output name="CreateTenderSubmissionHeader_Result" message="tns:CreateTenderSubmissionHeader_Result" />
+    </operation>
+    <operation name="CreateVendorPrequalificationHeader">
+      <input name="CreateVendorPrequalificationHeader" message="tns:CreateVendorPrequalificationHeader" />
+      <output name="CreateVendorPrequalificationHeader_Result" message="tns:CreateVendorPrequalificationHeader_Result" />
+    </operation>
+    <operation name="DocumentAttachment">
+      <input name="DocumentAttachment" message="tns:DocumentAttachment" />
+      <output name="DocumentAttachment_Result" message="tns:DocumentAttachment_Result" />
+    </operation>
+    <operation name="FileAttached">
+      <input name="FileAttached" message="tns:FileAttached" />
+      <output name="FileAttached_Result" message="tns:FileAttached_Result" />
+    </operation>
+    <operation name="GenerateRFQReport">
+      <input name="GenerateRFQReport" message="tns:GenerateRFQReport" />
+      <output name="GenerateRFQReport_Result" message="tns:GenerateRFQReport_Result" />
+    </operation>
+    <operation name="GenerateTenderRFQReport">
+      <input name="GenerateTenderRFQReport" message="tns:GenerateTenderRFQReport" />
+      <output name="GenerateTenderRFQReport_Result" message="tns:GenerateTenderRFQReport_Result" />
+    </operation>
+    <operation name="GetAppliedCategories">
+      <input name="GetAppliedCategories" message="tns:GetAppliedCategories" />
+      <output name="GetAppliedCategories_Result" message="tns:GetAppliedCategories_Result" />
+    </operation>
+    <operation name="GetBidderDetails">
+      <input name="GetBidderDetails" message="tns:GetBidderDetails" />
+      <output name="GetBidderDetails_Result" message="tns:GetBidderDetails_Result" />
+    </operation>
+    <operation name="GetCategoryName">
+      <input name="GetCategoryName" message="tns:GetCategoryName" />
+      <output name="GetCategoryName_Result" message="tns:GetCategoryName_Result" />
+    </operation>
+    <operation name="GetCategoryRequirements">
+      <input name="GetCategoryRequirements" message="tns:GetCategoryRequirements" />
+      <output name="GetCategoryRequirements_Result" message="tns:GetCategoryRequirements_Result" />
+    </operation>
+    <operation name="GetCities">
+      <input name="GetCities" message="tns:GetCities" />
+      <output name="GetCities_Result" message="tns:GetCities_Result" />
+    </operation>
+    <operation name="GetCurrentPrequalificationPeriod">
+      <input name="GetCurrentPrequalificationPeriod" message="tns:GetCurrentPrequalificationPeriod" />
+      <output name="GetCurrentPrequalificationPeriod_Result" message="tns:GetCurrentPrequalificationPeriod_Result" />
+    </operation>
+    <operation name="GetLastEntry">
+      <input name="GetLastEntry" message="tns:GetLastEntry" />
+      <output name="GetLastEntry_Result" message="tns:GetLastEntry_Result" />
+    </operation>
+    <operation name="GetMyAppliedCategories">
+      <input name="GetMyAppliedCategories" message="tns:GetMyAppliedCategories" />
+      <output name="GetMyAppliedCategories_Result" message="tns:GetMyAppliedCategories_Result" />
+    </operation>
+    <operation name="GetMyBidLines">
+      <input name="GetMyBidLines" message="tns:GetMyBidLines" />
+      <output name="GetMyBidLines_Result" message="tns:GetMyBidLines_Result" />
+    </operation>
+    <operation name="GetMyBids">
+      <input name="GetMyBids" message="tns:GetMyBids" />
+      <output name="GetMyBids_Result" message="tns:GetMyBids_Result" />
+    </operation>
+    <operation name="GetMyPrequalificationApplications">
+      <input name="GetMyPrequalificationApplications" message="tns:GetMyPrequalificationApplications" />
+      <output name="GetMyPrequalificationApplications_Result" message="tns:GetMyPrequalificationApplications_Result" />
+    </operation>
+    <operation name="GetMyQuoteLines">
+      <input name="GetMyQuoteLines" message="tns:GetMyQuoteLines" />
+      <output name="GetMyQuoteLines_Result" message="tns:GetMyQuoteLines_Result" />
+    </operation>
+    <operation name="GetMyQuotes">
+      <input name="GetMyQuotes" message="tns:GetMyQuotes" />
+      <output name="GetMyQuotes_Result" message="tns:GetMyQuotes_Result" />
+    </operation>
+    <operation name="GetOpenBidderTenders">
+      <input name="GetOpenBidderTenders" message="tns:GetOpenBidderTenders" />
+      <output name="GetOpenBidderTenders_Result" message="tns:GetOpenBidderTenders_Result" />
+    </operation>
+    <operation name="GetOpenTenderLines">
+      <input name="GetOpenTenderLines" message="tns:GetOpenTenderLines" />
+      <output name="GetOpenTenderLines_Result" message="tns:GetOpenTenderLines_Result" />
+    </operation>
+    <operation name="GetOpenTenders">
+      <input name="GetOpenTenders" message="tns:GetOpenTenders" />
+      <output name="GetOpenTenders_Result" message="tns:GetOpenTenders_Result" />
+    </operation>
+    <operation name="GetUnAppliedCategories">
+      <input name="GetUnAppliedCategories" message="tns:GetUnAppliedCategories" />
+      <output name="GetUnAppliedCategories_Result" message="tns:GetUnAppliedCategories_Result" />
+    </operation>
+    <operation name="GetVendorDetails">
+      <input name="GetVendorDetails" message="tns:GetVendorDetails" />
+      <output name="GetVendorDetails_Result" message="tns:GetVendorDetails_Result" />
+    </operation>
+    <operation name="GetVendorName">
+      <input name="GetVendorName" message="tns:GetVendorName" />
+      <output name="GetVendorName_Result" message="tns:GetVendorName_Result" />
+    </operation>
+    <operation name="HasActivatedAccount">
+      <input name="HasActivatedAccount" message="tns:HasActivatedAccount" />
+      <output name="HasActivatedAccount_Result" message="tns:HasActivatedAccount_Result" />
+    </operation>
+    <operation name="HasAppliedForCategory">
+      <input name="HasAppliedForCategory" message="tns:HasAppliedForCategory" />
+      <output name="HasAppliedForCategory_Result" message="tns:HasAppliedForCategory_Result" />
+    </operation>
+    <operation name="HasAppliedForPrequalification">
+      <input name="HasAppliedForPrequalification" message="tns:HasAppliedForPrequalification" />
+      <output name="HasAppliedForPrequalification_Result" message="tns:HasAppliedForPrequalification_Result" />
+    </operation>
+    <operation name="InsertRFQLines">
+      <input name="InsertRFQLines" message="tns:InsertRFQLines" />
+      <output name="InsertRFQLines_Result" message="tns:InsertRFQLines_Result" />
+    </operation>
+    <operation name="InsertTenderSubmissionLine">
+      <input name="InsertTenderSubmissionLine" message="tns:InsertTenderSubmissionLine" />
+      <output name="InsertTenderSubmissionLine_Result" message="tns:InsertTenderSubmissionLine_Result" />
+    </operation>
+    <operation name="LoginForChangedPassword">
+      <input name="LoginForChangedPassword" message="tns:LoginForChangedPassword" />
+      <output name="LoginForChangedPassword_Result" message="tns:LoginForChangedPassword_Result" />
+    </operation>
+    <operation name="LoginForUnchangedPassword">
+      <input name="LoginForUnchangedPassword" message="tns:LoginForUnchangedPassword" />
+      <output name="LoginForUnchangedPassword_Result" message="tns:LoginForUnchangedPassword_Result" />
+    </operation>
+    <operation name="NotAllMandatoryDocumentsUploaded">
+      <input name="NotAllMandatoryDocumentsUploaded" message="tns:NotAllMandatoryDocumentsUploaded" />
+      <output name="NotAllMandatoryDocumentsUploaded_Result" message="tns:NotAllMandatoryDocumentsUploaded_Result" />
+    </operation>
+    <operation name="PrequalificationApplied">
+      <input name="PrequalificationApplied" message="tns:PrequalificationApplied" />
+      <output name="PrequalificationApplied_Result" message="tns:PrequalificationApplied_Result" />
+    </operation>
+    <operation name="RFQApplied">
+      <input name="RFQApplied" message="tns:RFQApplied" />
+      <output name="RFQApplied_Result" message="tns:RFQApplied_Result" />
+    </operation>
+    <operation name="SubmitBid">
+      <input name="SubmitBid" message="tns:SubmitBid" />
+      <output name="SubmitBid_Result" message="tns:SubmitBid_Result" />
+    </operation>
+    <operation name="SubmitPrequalificationApplication">
+      <input name="SubmitPrequalificationApplication" message="tns:SubmitPrequalificationApplication" />
+      <output name="SubmitPrequalificationApplication_Result" message="tns:SubmitPrequalificationApplication_Result" />
+    </operation>
+    <operation name="SubmitRFQ">
+      <input name="SubmitRFQ" message="tns:SubmitRFQ" />
+      <output name="SubmitRFQ_Result" message="tns:SubmitRFQ_Result" />
+    </operation>
+    <operation name="TenderApplied">
+      <input name="TenderApplied" message="tns:TenderApplied" />
+      <output name="TenderApplied_Result" message="tns:TenderApplied_Result" />
+    </operation>
+    <operation name="UpdateBidderPassword">
+      <input name="UpdateBidderPassword" message="tns:UpdateBidderPassword" />
+      <output name="UpdateBidderPassword_Result" message="tns:UpdateBidderPassword_Result" />
+    </operation>
+    <operation name="UpdateVendorPassword">
+      <input name="UpdateVendorPassword" message="tns:UpdateVendorPassword" />
+      <output name="UpdateVendorPassword_Result" message="tns:UpdateVendorPassword_Result" />
+    </operation>
+    <operation name="ValidBidderNo">
+      <input name="ValidBidderNo" message="tns:ValidBidderNo" />
+      <output name="ValidBidderNo_Result" message="tns:ValidBidderNo_Result" />
+    </operation>
+  </portType>
+  <binding name="Procurement_Binding" type="tns:Procurement_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="ActivateBidderAccount">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:ActivateBidderAccount" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ActivateBidderAccount">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ActivateBidderAccount_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="AddedCategory">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:AddedCategory" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AddedCategory">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AddedCategory_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="BidderLogin">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:BidderLogin" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="BidderLogin">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="BidderLogin_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CheckPasswordChanged">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:CheckPasswordChanged" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CheckPasswordChanged">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CheckPasswordChanged_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CheckValidVatNo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:CheckValidVatNo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CheckValidVatNo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CheckValidVatNo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CheckVendorPasswordChanged">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:CheckVendorPasswordChanged" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CheckVendorPasswordChanged">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CheckVendorPasswordChanged_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateBidderAccount">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:CreateBidderAccount" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateBidderAccount">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateBidderAccount_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreatePrequalificationLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:CreatePrequalificationLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreatePrequalificationLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreatePrequalificationLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateRFQHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:CreateRFQHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateRFQHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateRFQHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateTenderPrequalificationHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:CreateTenderPrequalificationHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateTenderPrequalificationHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateTenderPrequalificationHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateTenderSubmissionHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:CreateTenderSubmissionHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateTenderSubmissionHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateTenderSubmissionHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateVendorPrequalificationHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:CreateVendorPrequalificationHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateVendorPrequalificationHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateVendorPrequalificationHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="DocumentAttachment">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:DocumentAttachment" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="DocumentAttachment">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="DocumentAttachment_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FileAttached">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:FileAttached" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FileAttached">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FileAttached_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GenerateRFQReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GenerateRFQReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GenerateRFQReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GenerateRFQReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GenerateTenderRFQReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GenerateTenderRFQReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GenerateTenderRFQReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GenerateTenderRFQReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetAppliedCategories">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetAppliedCategories" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetAppliedCategories">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetAppliedCategories_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetBidderDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetBidderDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetBidderDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetBidderDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCategoryName">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetCategoryName" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCategoryName">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCategoryName_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCategoryRequirements">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetCategoryRequirements" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCategoryRequirements">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCategoryRequirements_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCities">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetCities" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCities">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCities_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCurrentPrequalificationPeriod">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetCurrentPrequalificationPeriod" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCurrentPrequalificationPeriod">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCurrentPrequalificationPeriod_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLastEntry">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetLastEntry" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLastEntry">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLastEntry_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyAppliedCategories">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetMyAppliedCategories" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyAppliedCategories">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyAppliedCategories_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyBidLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetMyBidLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyBidLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyBidLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyBids">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetMyBids" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyBids">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyBids_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyPrequalificationApplications">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetMyPrequalificationApplications" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyPrequalificationApplications">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyPrequalificationApplications_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyQuoteLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetMyQuoteLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyQuoteLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyQuoteLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyQuotes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetMyQuotes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyQuotes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyQuotes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetOpenBidderTenders">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetOpenBidderTenders" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetOpenBidderTenders">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetOpenBidderTenders_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetOpenTenderLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetOpenTenderLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetOpenTenderLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetOpenTenderLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetOpenTenders">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetOpenTenders" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetOpenTenders">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetOpenTenders_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetUnAppliedCategories">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetUnAppliedCategories" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetUnAppliedCategories">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetUnAppliedCategories_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetVendorDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetVendorDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetVendorDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetVendorDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetVendorName">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:GetVendorName" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetVendorName">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetVendorName_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="HasActivatedAccount">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:HasActivatedAccount" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="HasActivatedAccount">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="HasActivatedAccount_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="HasAppliedForCategory">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:HasAppliedForCategory" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="HasAppliedForCategory">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="HasAppliedForCategory_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="HasAppliedForPrequalification">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:HasAppliedForPrequalification" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="HasAppliedForPrequalification">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="HasAppliedForPrequalification_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="InsertRFQLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:InsertRFQLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="InsertRFQLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="InsertRFQLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="InsertTenderSubmissionLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:InsertTenderSubmissionLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="InsertTenderSubmissionLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="InsertTenderSubmissionLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LoginForChangedPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:LoginForChangedPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LoginForChangedPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LoginForChangedPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LoginForUnchangedPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:LoginForUnchangedPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LoginForUnchangedPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LoginForUnchangedPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="NotAllMandatoryDocumentsUploaded">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:NotAllMandatoryDocumentsUploaded" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="NotAllMandatoryDocumentsUploaded">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="NotAllMandatoryDocumentsUploaded_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="PrequalificationApplied">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:PrequalificationApplied" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="PrequalificationApplied">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="PrequalificationApplied_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="RFQApplied">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:RFQApplied" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RFQApplied">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RFQApplied_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SubmitBid">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:SubmitBid" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SubmitBid">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SubmitBid_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SubmitPrequalificationApplication">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:SubmitPrequalificationApplication" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SubmitPrequalificationApplication">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SubmitPrequalificationApplication_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SubmitRFQ">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:SubmitRFQ" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SubmitRFQ">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SubmitRFQ_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="TenderApplied">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:TenderApplied" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="TenderApplied">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="TenderApplied_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateBidderPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:UpdateBidderPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateBidderPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateBidderPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateVendorPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:UpdateVendorPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateVendorPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateVendorPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ValidBidderNo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Procurement:ValidBidderNo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ValidBidderNo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ValidBidderNo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Procurement">
+    <port name="Procurement_Port" binding="tns:Procurement_Binding">
+      <address location="http://192.168.1.253:7047/Kewi/WS/KEWI%20TRAINING/Codeunit/Procurement" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

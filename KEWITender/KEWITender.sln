@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KEWITender", "KEWITender\KEWITender.csproj", "{AD38686D-3346-4649-8368-F6DB3221066F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD38686D-3346-4649-8368-F6DB3221066F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD38686D-3346-4649-8368-F6DB3221066F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD38686D-3346-4649-8368-F6DB3221066F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD38686D-3346-4649-8368-F6DB3221066F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3022B342-CC8C-458A-A8C7-062D8A110C73}
+	EndGlobalSection
+EndGlobal
