@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/Staffportal" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="CheckStaffPasswordChanged">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckStaffPasswordChanged_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckValidStaffNo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckValidStaffNo_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetCampus">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetCampus_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCurrentAcademicYear">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetCurrentAcademicYear_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetFinalExamMaxScore">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="unitCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetFinalExamMaxScore_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLecturerProgrammes">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLecturerProgrammes_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLecturerSemester">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="programme" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLecturerSemester_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLecturerStages">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="programme" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLecturerStages_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLecturerStudents">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="semester" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="programme" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unit" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLecturerStudents_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLecturerUnits">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="programme" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="term" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLecturerUnits_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetProgrammeName">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="progId" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetProgrammeName_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffGender">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffGender_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStudentName">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStudentName_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetSubmittedExamMarks">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unit" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="semester" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lecturer" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="program" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetSubmittedExamMarks_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetUnitDescription">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="programme" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="term" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unit" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetUnitDescription_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="IsLecturer">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="IsLecturer_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForChangedPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="password" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForChangedPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForUnchangedPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForUnchangedPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SubmitSummativeResults">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unit" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="score" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="program" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lecturer" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="semester" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SubmitSummativeResults_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdateStaffPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="genpass" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateStaffPassword_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="CheckStaffPasswordChanged">
+    <part name="parameters" element="tns:CheckStaffPasswordChanged" />
+  </message>
+  <message name="CheckStaffPasswordChanged_Result">
+    <part name="parameters" element="tns:CheckStaffPasswordChanged_Result" />
+  </message>
+  <message name="CheckValidStaffNo">
+    <part name="parameters" element="tns:CheckValidStaffNo" />
+  </message>
+  <message name="CheckValidStaffNo_Result">
+    <part name="parameters" element="tns:CheckValidStaffNo_Result" />
+  </message>
+  <message name="GetCampus">
+    <part name="parameters" element="tns:GetCampus" />
+  </message>
+  <message name="GetCampus_Result">
+    <part name="parameters" element="tns:GetCampus_Result" />
+  </message>
+  <message name="GetCurrentAcademicYear">
+    <part name="parameters" element="tns:GetCurrentAcademicYear" />
+  </message>
+  <message name="GetCurrentAcademicYear_Result">
+    <part name="parameters" element="tns:GetCurrentAcademicYear_Result" />
+  </message>
+  <message name="GetFinalExamMaxScore">
+    <part name="parameters" element="tns:GetFinalExamMaxScore" />
+  </message>
+  <message name="GetFinalExamMaxScore_Result">
+    <part name="parameters" element="tns:GetFinalExamMaxScore_Result" />
+  </message>
+  <message name="GetLecturerProgrammes">
+    <part name="parameters" element="tns:GetLecturerProgrammes" />
+  </message>
+  <message name="GetLecturerProgrammes_Result">
+    <part name="parameters" element="tns:GetLecturerProgrammes_Result" />
+  </message>
+  <message name="GetLecturerSemester">
+    <part name="parameters" element="tns:GetLecturerSemester" />
+  </message>
+  <message name="GetLecturerSemester_Result">
+    <part name="parameters" element="tns:GetLecturerSemester_Result" />
+  </message>
+  <message name="GetLecturerStages">
+    <part name="parameters" element="tns:GetLecturerStages" />
+  </message>
+  <message name="GetLecturerStages_Result">
+    <part name="parameters" element="tns:GetLecturerStages_Result" />
+  </message>
+  <message name="GetLecturerStudents">
+    <part name="parameters" element="tns:GetLecturerStudents" />
+  </message>
+  <message name="GetLecturerStudents_Result">
+    <part name="parameters" element="tns:GetLecturerStudents_Result" />
+  </message>
+  <message name="GetLecturerUnits">
+    <part name="parameters" element="tns:GetLecturerUnits" />
+  </message>
+  <message name="GetLecturerUnits_Result">
+    <part name="parameters" element="tns:GetLecturerUnits_Result" />
+  </message>
+  <message name="GetProgrammeName">
+    <part name="parameters" element="tns:GetProgrammeName" />
+  </message>
+  <message name="GetProgrammeName_Result">
+    <part name="parameters" element="tns:GetProgrammeName_Result" />
+  </message>
+  <message name="GetStaffDetails">
+    <part name="parameters" element="tns:GetStaffDetails" />
+  </message>
+  <message name="GetStaffDetails_Result">
+    <part name="parameters" element="tns:GetStaffDetails_Result" />
+  </message>
+  <message name="GetStaffGender">
+    <part name="parameters" element="tns:GetStaffGender" />
+  </message>
+  <message name="GetStaffGender_Result">
+    <part name="parameters" element="tns:GetStaffGender_Result" />
+  </message>
+  <message name="GetStudentName">
+    <part name="parameters" element="tns:GetStudentName" />
+  </message>
+  <message name="GetStudentName_Result">
+    <part name="parameters" element="tns:GetStudentName_Result" />
+  </message>
+  <message name="GetSubmittedExamMarks">
+    <part name="parameters" element="tns:GetSubmittedExamMarks" />
+  </message>
+  <message name="GetSubmittedExamMarks_Result">
+    <part name="parameters" element="tns:GetSubmittedExamMarks_Result" />
+  </message>
+  <message name="GetUnitDescription">
+    <part name="parameters" element="tns:GetUnitDescription" />
+  </message>
+  <message name="GetUnitDescription_Result">
+    <part name="parameters" element="tns:GetUnitDescription_Result" />
+  </message>
+  <message name="IsLecturer">
+    <part name="parameters" element="tns:IsLecturer" />
+  </message>
+  <message name="IsLecturer_Result">
+    <part name="parameters" element="tns:IsLecturer_Result" />
+  </message>
+  <message name="LoginForChangedPassword">
+    <part name="parameters" element="tns:LoginForChangedPassword" />
+  </message>
+  <message name="LoginForChangedPassword_Result">
+    <part name="parameters" element="tns:LoginForChangedPassword_Result" />
+  </message>
+  <message name="LoginForUnchangedPassword">
+    <part name="parameters" element="tns:LoginForUnchangedPassword" />
+  </message>
+  <message name="LoginForUnchangedPassword_Result">
+    <part name="parameters" element="tns:LoginForUnchangedPassword_Result" />
+  </message>
+  <message name="SubmitSummativeResults">
+    <part name="parameters" element="tns:SubmitSummativeResults" />
+  </message>
+  <message name="SubmitSummativeResults_Result">
+    <part name="parameters" element="tns:SubmitSummativeResults_Result" />
+  </message>
+  <message name="UpdateStaffPassword">
+    <part name="parameters" element="tns:UpdateStaffPassword" />
+  </message>
+  <message name="UpdateStaffPassword_Result">
+    <part name="parameters" element="tns:UpdateStaffPassword_Result" />
+  </message>
+  <portType name="Staffportal_Port">
+    <operation name="CheckStaffPasswordChanged">
+      <input name="CheckStaffPasswordChanged" message="tns:CheckStaffPasswordChanged" />
+      <output name="CheckStaffPasswordChanged_Result" message="tns:CheckStaffPasswordChanged_Result" />
+    </operation>
+    <operation name="CheckValidStaffNo">
+      <input name="CheckValidStaffNo" message="tns:CheckValidStaffNo" />
+      <output name="CheckValidStaffNo_Result" message="tns:CheckValidStaffNo_Result" />
+    </operation>
+    <operation name="GetCampus">
+      <input name="GetCampus" message="tns:GetCampus" />
+      <output name="GetCampus_Result" message="tns:GetCampus_Result" />
+    </operation>
+    <operation name="GetCurrentAcademicYear">
+      <input name="GetCurrentAcademicYear" message="tns:GetCurrentAcademicYear" />
+      <output name="GetCurrentAcademicYear_Result" message="tns:GetCurrentAcademicYear_Result" />
+    </operation>
+    <operation name="GetFinalExamMaxScore">
+      <input name="GetFinalExamMaxScore" message="tns:GetFinalExamMaxScore" />
+      <output name="GetFinalExamMaxScore_Result" message="tns:GetFinalExamMaxScore_Result" />
+    </operation>
+    <operation name="GetLecturerProgrammes">
+      <input name="GetLecturerProgrammes" message="tns:GetLecturerProgrammes" />
+      <output name="GetLecturerProgrammes_Result" message="tns:GetLecturerProgrammes_Result" />
+    </operation>
+    <operation name="GetLecturerSemester">
+      <input name="GetLecturerSemester" message="tns:GetLecturerSemester" />
+      <output name="GetLecturerSemester_Result" message="tns:GetLecturerSemester_Result" />
+    </operation>
+    <operation name="GetLecturerStages">
+      <input name="GetLecturerStages" message="tns:GetLecturerStages" />
+      <output name="GetLecturerStages_Result" message="tns:GetLecturerStages_Result" />
+    </operation>
+    <operation name="GetLecturerStudents">
+      <input name="GetLecturerStudents" message="tns:GetLecturerStudents" />
+      <output name="GetLecturerStudents_Result" message="tns:GetLecturerStudents_Result" />
+    </operation>
+    <operation name="GetLecturerUnits">
+      <input name="GetLecturerUnits" message="tns:GetLecturerUnits" />
+      <output name="GetLecturerUnits_Result" message="tns:GetLecturerUnits_Result" />
+    </operation>
+    <operation name="GetProgrammeName">
+      <input name="GetProgrammeName" message="tns:GetProgrammeName" />
+      <output name="GetProgrammeName_Result" message="tns:GetProgrammeName_Result" />
+    </operation>
+    <operation name="GetStaffDetails">
+      <input name="GetStaffDetails" message="tns:GetStaffDetails" />
+      <output name="GetStaffDetails_Result" message="tns:GetStaffDetails_Result" />
+    </operation>
+    <operation name="GetStaffGender">
+      <input name="GetStaffGender" message="tns:GetStaffGender" />
+      <output name="GetStaffGender_Result" message="tns:GetStaffGender_Result" />
+    </operation>
+    <operation name="GetStudentName">
+      <input name="GetStudentName" message="tns:GetStudentName" />
+      <output name="GetStudentName_Result" message="tns:GetStudentName_Result" />
+    </operation>
+    <operation name="GetSubmittedExamMarks">
+      <input name="GetSubmittedExamMarks" message="tns:GetSubmittedExamMarks" />
+      <output name="GetSubmittedExamMarks_Result" message="tns:GetSubmittedExamMarks_Result" />
+    </operation>
+    <operation name="GetUnitDescription">
+      <input name="GetUnitDescription" message="tns:GetUnitDescription" />
+      <output name="GetUnitDescription_Result" message="tns:GetUnitDescription_Result" />
+    </operation>
+    <operation name="IsLecturer">
+      <input name="IsLecturer" message="tns:IsLecturer" />
+      <output name="IsLecturer_Result" message="tns:IsLecturer_Result" />
+    </operation>
+    <operation name="LoginForChangedPassword">
+      <input name="LoginForChangedPassword" message="tns:LoginForChangedPassword" />
+      <output name="LoginForChangedPassword_Result" message="tns:LoginForChangedPassword_Result" />
+    </operation>
+    <operation name="LoginForUnchangedPassword">
+      <input name="LoginForUnchangedPassword" message="tns:LoginForUnchangedPassword" />
+      <output name="LoginForUnchangedPassword_Result" message="tns:LoginForUnchangedPassword_Result" />
+    </operation>
+    <operation name="SubmitSummativeResults">
+      <input name="SubmitSummativeResults" message="tns:SubmitSummativeResults" />
+      <output name="SubmitSummativeResults_Result" message="tns:SubmitSummativeResults_Result" />
+    </operation>
+    <operation name="UpdateStaffPassword">
+      <input name="UpdateStaffPassword" message="tns:UpdateStaffPassword" />
+      <output name="UpdateStaffPassword_Result" message="tns:UpdateStaffPassword_Result" />
+    </operation>
+  </portType>
+  <binding name="Staffportal_Binding" type="tns:Staffportal_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="CheckStaffPasswordChanged">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:CheckStaffPasswordChanged" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CheckStaffPasswordChanged">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CheckStaffPasswordChanged_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CheckValidStaffNo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:CheckValidStaffNo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CheckValidStaffNo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CheckValidStaffNo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCampus">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetCampus" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCampus">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCampus_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCurrentAcademicYear">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetCurrentAcademicYear" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCurrentAcademicYear">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCurrentAcademicYear_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetFinalExamMaxScore">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetFinalExamMaxScore" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetFinalExamMaxScore">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetFinalExamMaxScore_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLecturerProgrammes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLecturerProgrammes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLecturerProgrammes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLecturerProgrammes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLecturerSemester">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLecturerSemester" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLecturerSemester">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLecturerSemester_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLecturerStages">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLecturerStages" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLecturerStages">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLecturerStages_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLecturerStudents">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLecturerStudents" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLecturerStudents">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLecturerStudents_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLecturerUnits">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLecturerUnits" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLecturerUnits">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLecturerUnits_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetProgrammeName">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetProgrammeName" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetProgrammeName">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetProgrammeName_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStaffDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetStaffDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStaffDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStaffDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStaffGender">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetStaffGender" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStaffGender">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStaffGender_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStudentName">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetStudentName" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStudentName">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStudentName_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetSubmittedExamMarks">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetSubmittedExamMarks" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetSubmittedExamMarks">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetSubmittedExamMarks_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetUnitDescription">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetUnitDescription" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetUnitDescription">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetUnitDescription_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="IsLecturer">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:IsLecturer" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="IsLecturer">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="IsLecturer_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LoginForChangedPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:LoginForChangedPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LoginForChangedPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LoginForChangedPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LoginForUnchangedPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:LoginForUnchangedPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LoginForUnchangedPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LoginForUnchangedPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SubmitSummativeResults">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:SubmitSummativeResults" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SubmitSummativeResults">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SubmitSummativeResults_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateStaffPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:UpdateStaffPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateStaffPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateStaffPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Staffportal">
+    <port name="Staffportal_Port" binding="tns:Staffportal_Binding">
+      <address location="http://192.168.1.253:7047/Kewi/WS/KEWI%20TRAINING/Codeunit/Staffportal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

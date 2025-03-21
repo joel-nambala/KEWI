@@ -120,13 +120,109 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="App_Data\Components.cs" />
+    <Compile Include="Controllers\ApiController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\ExaminationController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="App_Data\ExamHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Config.cs" />
+    <Compile Include="Models\Examination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\NAVWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\demo.css" />
+    <Content Include="assets\img\avatars\1.png" />
+    <Content Include="assets\img\avatars\5.png" />
+    <Content Include="assets\img\avatars\6.png" />
+    <Content Include="assets\img\avatars\7.png" />
+    <Content Include="assets\img\backgrounds\18.jpg" />
+    <Content Include="assets\img\elements\1.jpg" />
+    <Content Include="assets\img\elements\11.jpg" />
+    <Content Include="assets\img\elements\12.jpg" />
+    <Content Include="assets\img\elements\13.jpg" />
+    <Content Include="assets\img\elements\17.jpg" />
+    <Content Include="assets\img\elements\18.jpg" />
+    <Content Include="assets\img\elements\19.jpg" />
+    <Content Include="assets\img\elements\2.jpg" />
+    <Content Include="assets\img\elements\20.jpg" />
+    <Content Include="assets\img\elements\3.jpg" />
+    <Content Include="assets\img\elements\4.jpg" />
+    <Content Include="assets\img\elements\5.jpg" />
+    <Content Include="assets\img\elements\7.jpg" />
+    <Content Include="assets\img\favicon\favicon.ico" />
+    <Content Include="assets\img\icons\brands\asana.png" />
+    <Content Include="assets\img\icons\brands\behance.png" />
+    <Content Include="assets\img\icons\brands\dribbble.png" />
+    <Content Include="assets\img\icons\brands\facebook.png" />
+    <Content Include="assets\img\icons\brands\github.png" />
+    <Content Include="assets\img\icons\brands\google.png" />
+    <Content Include="assets\img\icons\brands\instagram.png" />
+    <Content Include="assets\img\icons\brands\mailchimp.png" />
+    <Content Include="assets\img\icons\brands\slack.png" />
+    <Content Include="assets\img\icons\brands\twitter.png" />
+    <Content Include="assets\img\icons\unicons\cc-primary.png" />
+    <Content Include="assets\img\icons\unicons\cc-success.png" />
+    <Content Include="assets\img\icons\unicons\cc-warning.png" />
+    <Content Include="assets\img\icons\unicons\chart-success.png" />
+    <Content Include="assets\img\icons\unicons\chart.png" />
+    <Content Include="assets\img\icons\unicons\paypal.png" />
+    <Content Include="assets\img\icons\unicons\wallet-info.png" />
+    <Content Include="assets\img\icons\unicons\wallet.png" />
+    <Content Include="assets\img\illustrations\girl-doing-yoga-light.png" />
+    <Content Include="assets\img\illustrations\man-with-laptop-light.png" />
+    <Content Include="assets\img\illustrations\page-misc-error-light.png" />
+    <Content Include="assets\img\layouts\layout-container-light.png" />
+    <Content Include="assets\img\layouts\layout-fluid-light.png" />
+    <Content Include="assets\img\layouts\layout-without-menu-light.png" />
+    <Content Include="assets\img\layouts\layout-without-navbar-light.png" />
+    <Content Include="assets\img\logo\logo.png" />
+    <Content Include="assets\img\logo\profile_f.png" />
+    <Content Include="assets\img\logo\profile_m.png" />
+    <Content Include="assets\js\config.js" />
+    <Content Include="assets\js\dashboards-analytics.js" />
+    <Content Include="assets\js\extended-ui-perfect-scrollbar.js" />
+    <Content Include="assets\js\form-basic-inputs.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\pages-account-settings-account.js" />
+    <Content Include="assets\js\ui-modals.js" />
+    <Content Include="assets\js\ui-popover.js" />
+    <Content Include="assets\js\ui-toasts.js" />
+    <Content Include="assets\vendor\css\core.css" />
+    <Content Include="assets\vendor\css\pages\page-account-settings.css" />
+    <Content Include="assets\vendor\css\pages\page-auth.css" />
+    <Content Include="assets\vendor\css\pages\page-icons.css" />
+    <Content Include="assets\vendor\css\pages\page-misc.css" />
+    <Content Include="assets\vendor\css\theme-default.css" />
+    <Content Include="assets\vendor\fonts\boxicons.css" />
+    <Content Include="assets\vendor\fonts\boxicons\boxicons.svg" />
+    <Content Include="assets\vendor\js\bootstrap.js" />
+    <Content Include="assets\vendor\js\helpers.js" />
+    <Content Include="assets\vendor\js\menu.js" />
+    <Content Include="assets\vendor\libs\apex-charts\apex-charts.css" />
+    <Content Include="assets\vendor\libs\apex-charts\apexcharts.js" />
+    <Content Include="assets\vendor\libs\highlight\highlight-github.css" />
+    <Content Include="assets\vendor\libs\highlight\highlight.css" />
+    <Content Include="assets\vendor\libs\highlight\highlight.js" />
+    <Content Include="assets\vendor\libs\jquery\jquery.js" />
+    <Content Include="assets\vendor\libs\masonry\masonry.js" />
+    <Content Include="assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="assets\vendor\libs\popper\popper.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -152,6 +248,14 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="assets\vendor\fonts\boxicons\boxicons.eot" />
+    <Content Include="assets\vendor\fonts\boxicons\boxicons.ttf" />
+    <Content Include="assets\vendor\fonts\boxicons\boxicons.woff" />
+    <Content Include="assets\vendor\fonts\boxicons\boxicons.woff2" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -174,13 +278,22 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\ResetPassword.cshtml" />
+    <Content Include="Views\Login\ForgotPassword.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Examination\EnterMarks.cshtml" />
+    <Content Include="Views\Examination\FormativeAssessment.cshtml" />
+    <None Include="Web References\NAVWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\NAVWS\Staffportal.wsdl" />
+    <Content Include="Views\Examination\SummativeAssessment.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -208,6 +321,25 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.1.253:7047/Kewi/WS/KEWI%2520TRAINING/Codeunit/Staffportal">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NAVWS\</RelPath>
+      <UpdateFromURL>http://192.168.1.253:7047/Kewi/WS/KEWI%2520TRAINING/Codeunit/Staffportal</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>KEWIStaff_NAVWS1_Staffportal</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Api\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

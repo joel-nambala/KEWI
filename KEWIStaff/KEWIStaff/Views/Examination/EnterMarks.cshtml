@@ -1,0 +1,168 @@
+﻿@model KEWIStaff.Models.Examination
+@{
+    ViewBag.Title = "Enter Marks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Enter Marks</h5>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Enter Marks</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <form action="@Url.Action("submitmarks","examination")" method="post">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label style="font-weight: bold;">Enter marks for: @Model.UnitDescription, @Model.Stage, @Model.Semester</label>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <label>Final Exam - <span id="final-exam">@Model.MaxExamScore</span></label>%<br />
+                            </div>
+                        </div>
+                        @if (ViewBag.markEntryDateline)
+                        {
+                            <div class="row mt-3">
+                                <input type="hidden" name="CatMarks" id="cat-marks" />
+                                <input type="hidden" name="PracticalMarks" id="practical-marks" />
+                                <input type="hidden" name="ExamMarks" id="exam-marks" />
+                                <input type="hidden" name="Unit" class="form-control" value="@Model.Unit" id="unit" />
+                                <input type="hidden" name="Stage" class="form-control" value="@Model.Stage" id="stage" />
+                                <input type="hidden" name="Term" class="form-control" value="@Model.Semester" id="semester" />
+                                <input type="hidden" name="Programme" class="form-control" value="@Model.Programme" id="program" />
+                                <p style="visibility:hidden;" id="lock-cat-editing">@Model.LockCatEditing</p>
+                                <p style="visibility:hidden;" id="lock-exam-editing">@Model.LockExamEditing</p>
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table id="my-table" class="table table-hover small">
+                                            <thead>
+                                                <tr>
+                                                    <th>Student No</th>
+                                                    <th>Student Name</th>
+                                                    <th>Trans Id</th>
+                                                    <th>Final Exam</th>
+                                                    <th style="display: none;">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var student in Model.LecturerStudents)
+                                                {
+                                                    <tr>
+                                                        <td>@student.StudentNo</td>
+                                                        <td>@student.StudentName</td>
+                                                        <td>@student.TransactionId</td>                                                        
+                                                        <td>
+                                                            <input type="number" class="form-control final-exam w-100" placeholder="Final Exam" />
+                                                        </td>
+                                                        <td style="display: none;">
+                                                            <label class="text-success total-marks" style="font-weight: bold;">70</label>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-12 d-flex justify-content-between align-items-center">
+                                    <a class="btn btn-primary text-capitalize text-white">Print marksheet</a>
+                                    <button type="submit" class="btn btn-success text-capitalize" onclick="return saveMarks()">Save marks</button>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        Mark entry dateline has passed. You cannot enter marks for this unit.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const table = document.getElementById('my-table');
+    const unit = document.getElementById('unit');
+    const stage = document.getElementById('stage');
+    const semester = document.getElementById('semester');
+    const program = document.getElementById('program');
+    const examMarks = document.getElementById('exam-marks');
+    const maxScoreDOM = document.getElementById('final-exam');
+
+    const getScores = async function (studentNo, unit, semester, stage, program) {
+        const response = await fetch(`/api/getsubmittedexammarks?studentNo=${studentNo}&unit=${unit}&semester=${semester}&stage=${stage}&program=${program}`);
+        const result = await response.json();
+        return result;
+    }
+
+    const loadSubmittedScores = async function () {
+        const inputs = table.querySelectorAll('.final-exam');
+        for (let i = 0; i < inputs.length; i++) {
+            const row = inputs[i].closest('tr');
+            const finalExamDOM = row.querySelector('.final-exam');
+            const studentNo = row.cells[0].innerHTML;
+
+            const score = await getScores(studentNo, unit.value, semester.value, stage.value, program.value);
+            if (!score) continue;
+            finalExamDOM.value = score;
+        }
+    }
+    loadSubmittedScores();
+
+    const saveMarks = function () {
+        const inputs = table.querySelectorAll('.final-exam');
+        let message = '';
+        for (let i = 0; i < inputs.length; i++) {
+            const row = inputs[i].closest('tr');
+            const finalExamDOM = row.querySelector('.final-exam');
+            const finalExam = finalExamDOM.value;
+            const studentNo = row.cells[0].innerHTML;
+            const maxScore = maxScoreDOM.textContent;
+
+            if (Number(finalExam) > Number(maxScore)) {
+                alert('Final exam score cannot be greater than maximum score!');
+                finalExamDOM.focus();
+                return false;
+            }
+
+            message += studentNo + '::' + unit.value + '::' + finalExam + '::' + stage.value + '::' + semester.value + '::' + program.value + '[]';
+        }
+        examMarks.value = '';
+        examMarks.value = message;
+    }
+</script>
