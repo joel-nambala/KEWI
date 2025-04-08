@@ -51,13 +51,25 @@
                         <div class="row mt-2">
                             <div class="col-md-6">
                                 <label class="form-label">Semester</label>
-                                <select name="Semester" class="form-control" required id="term"></select>
+                                <select name="Semester" class="form-control" required id="semester"></select>
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-6">
                                 <label class="form-label">Unit</label>
                                 <select name="Unit" class="form-control" required id="unit"></select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="form-label">Learning Outcome</label>
+                                <select name="LearningOutcome" class="form-control" required id="learning-outcome"></select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="form-label">Assessment Category</label>
+                                <select name="AssessmentCategory" class="form-control" required id="assessment-category"></select>
                             </div>
                         </div>
                         <div class="row mt-2">
@@ -77,3 +89,140 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    const programContainer = document.getElementById('programme');
+    const stageContainer = document.getElementById('stage');
+    const semesterContainer = document.getElementById('semester');
+    const unitContainer = document.getElementById('unit');
+    const learningOutcomeContainer = document.getElementById('learning-outcome');
+    const campusContainer = document.getElementById('campus');
+    const assessmentCategoryContainer = document.getElementById('assessment-category');
+
+    const createCategoryObject = function (category) {
+        let categoryId;
+        let categoryName;
+
+        if (category.Code == "Practical") {
+            categoryId = 1;
+            categoryName = "Practical";
+        }
+        if (category.Code == "Theory") {
+            categoryId = 2;
+            categoryName = "Theory";
+        }
+        if (category.Code == "Report Presentation") {
+            categoryId = 3;
+            categoryName = "Report Presentation";
+        }
+        if (category.Code == "Supervisor Evaluation") {
+            categoryId = 4;
+            categoryName = "Supervisor Evaluation";
+        }
+        if (category.Code == "Proposal Defense") {
+            categoryId = 5;
+            categoryName = "Proposal Defense";
+        }
+        if (category.Code == "Final Report") {
+            categoryId = 6;
+            categoryName = "Final Report";
+        }
+        if (category.Code == "Panel  Presentation") {
+            categoryId = 7;
+            categoryName = "Panel  Presentation";
+        }
+
+        return { categoryId, categoryName };
+    }
+
+    const getAssessmentCategories = async function () {
+        const unit = unitContainer.value;
+        const response = await fetch(`/api/getassessmentcategories?unit=${unit}`);
+        const data = await response.json();
+        let categories = [];
+        data.forEach(category => {
+            categories.push(createCategoryObject(category));
+        })
+        console.log(categories);
+        let html = '';
+        categories.forEach(category => html += `<option value="${category.categoryId}">${category.categoryName}</option>`);
+        assessmentCategoryContainer.innerHTML = '';
+        assessmentCategoryContainer.innerHTML = html;
+    }
+
+    const getCampus = async function () {
+        campusContainer.innerHTML = '';
+        const response = await fetch('/api/getcampus');
+        const data = await response.json();
+        let html = '';
+        data.forEach(campus => html += `<option value=${campus.Code}>${campus.Description}</option>`);
+        campusContainer.innerHTML = html;
+    }
+    getCampus();
+
+    const getLearningOutcomes = async function () {
+        const program = programContainer.value;
+        const stage = stageContainer.value;
+        const semester = semesterContainer.value;
+        const unit = unitContainer.value;
+        const response = await fetch(`/api/getlolearningoutcomes?program=${program}&stage=${stage}&semester=${semester}&unit=${unit}`);
+        const data = await response.json();
+        let html = '';
+        data.forEach(learningOutcome => html += `<option value="${learningOutcome.Code}">${learningOutcome.Description}</option>`);
+        learningOutcomeContainer.innerHTML = '';
+        learningOutcomeContainer.innerHTML = html;
+        getAssessmentCategories();
+    }
+
+    const getUnits = async function () {
+        const program = programContainer.value;
+        const stage = stageContainer.value;
+        const semester = semesterContainer.value;
+        const response = await fetch(`/api/getlounits?program=${program}&stage=${stage}&semester=${semester}`);
+        const data = await response.json();
+        let html = '';
+        data.forEach(unit => html += `<option value="${unit.Code}">${unit.Description}</option>`);
+        unitContainer.innerHTML = '';
+        unitContainer.innerHTML = html;
+        getLearningOutcomes();        
+    }
+
+    const getSemester = async function () {
+        const program = programContainer.value;
+        const stage = stageContainer.value;
+        const response = await fetch(`/api/getlosemester?program=${program}&stage=${stage}`);
+        const data = await response.json();
+        let html = '';
+        data.forEach(semester => html += `<option value="${semester.Code}">${semester.Code}</option>`);
+        semesterContainer.innerHTML = '';
+        semesterContainer.innerHTML = html;
+        getUnits();
+    }
+
+    const getStages = async function () {
+        const program = programContainer.value;
+        const response = await fetch(`/api/getlostage?program=${program}`);
+        const data = await response.json();
+        let html = '';
+        data.forEach(stage => html += `<option value="${stage.Code}">${stage.Code}</option>`);
+        stageContainer.innerHTML = '';
+        stageContainer.innerHTML = html;
+        getSemester();
+    }
+
+    const getPrograms = async function () {
+        const response = await fetch('/api/getloprograms');
+        const data = await response.json();
+        let html = '';
+        data.forEach(program => html += `<option value="${program.Code}">${program.Description}</option>`);
+        programContainer.innerHTML = '';
+        programContainer.innerHTML = html;
+        getStages();
+    }
+    getPrograms();
+
+    programContainer.addEventListener('change', getStages);
+    stageContainer.addEventListener('change', getSemester);
+    semesterContainer.addEventListener('change', getUnits);
+    unitContainer.addEventListener('change', getLearningOutcomes);
+</script>

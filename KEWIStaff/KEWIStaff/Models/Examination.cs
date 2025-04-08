@@ -28,6 +28,9 @@ namespace KEWIStaff.Models
         public string PracticalMarks { get; set; }
         public string ExamMarks { get; set; }
         public decimal Score { get; set; }
+        public string LearningOutcome { get; set; }
+        public string AssessmentCategory { get; set; }
+        public string MarksCategory { get; set; }
         public List<Examination> LecturerStudents { get; set; }
     }
 }

@@ -1,0 +1,102 @@
+﻿@model KEWIStudents.Models.Academics
+@{
+    ViewBag.Title = "Semester Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mt-2 mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <h3>Semester Registration</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("index","dashboard")">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title small">Semester Registrtion</h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger">@TempData["Error"]</div>
+                }
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success">@TempData["Success"]</div>
+                }
+            </div>
+        </div>
+        <form action="@Url.Action("semesterregistration","academics")" method="post">
+            <input type="hidden" required name="StudentNo" value="@Model.StudentNo" />
+            <input type="hidden" required name="StudentName" value="@Model.StudentName" />
+            <input type="hidden" required name="Semester" value="@Model.Semester" />
+            <input type="hidden" required name="SettlementType" value="@Model.SettlementType" />
+            <input type="hidden" required name="Program" value="@Model.Program" id="program" />
+            <input type="hidden" required name="Stage" value="@Model.Stage" id="stage" />
+            <input type="hidden" required name="NextStage" value="@Model.NextStage" id="next-stage" />
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Student No:</td>
+                        <td>
+                            <span style="color: green;">@Model.StudentNo</span>
+                        </td>
+                        <td>Semester:</td>
+                        <td>
+                            <span style="color: green;">@Model.Semester</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Student Name:</td>
+                        <td>
+                            <span style="color: green;">@Model.StudentName</span>
+                        </td>
+                        <td>Settlement Type:</td>
+                        <td>
+                            <span style="color: green;">@Model.SettlementType</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Programme Code:</td>
+                        <td>
+                            <span style="color: green;">@Model.ProgramName</span>
+                        </td>
+                        <td>Stage:</td>
+                        <td>
+                            <select class="form-control" required id="stages" name="NextStage"></select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const programContainer = document.getElementById('program');
+    const stagesContainer = document.getElementById("stages");
+    const stageContainer = document.getElementById('next-stage');
+
+    const getProgramStages = async function () {
+        const program = programContainer.value;
+        const stage = stageContainer.value;
+
+        const response = await fetch('/api/getprogramstages');
+        const result = await response.json();
+        let html = '';
+        result.forEach(item => html += `<option value=${result.Code}>${result.Description}</option>`)
+        stagesContainer.innerHTML = '';
+        stagesContainer.innerHTML = html;
+        stagesContainer.selected = stage;
+        console.log(result);
+        console.log(stage);
+    }
+    getProgramStages();
+</script>

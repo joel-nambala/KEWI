@@ -132,6 +132,7 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Config.cs" />
     <Compile Include="Models\Examination.cs" />
+    <Compile Include="Models\OldExam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -285,12 +286,15 @@
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Examination\EnterMarks.cshtml" />
     <Content Include="Views\Examination\FormativeAssessment.cshtml" />
+    <Content Include="Views\Examination\SummativeAssessment.cshtml" />
+    <Content Include="Views\Examination\AssignMarks.cshtml" />
+    <Content Include="Views\Examination\EnterOldMarks.cshtml" />
+    <Content Include="Views\Examination\FormativeAssessmentMarks.cshtml" />
     <None Include="Web References\NAVWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\NAVWS\Staffportal.wsdl" />
-    <Content Include="Views\Examination\SummativeAssessment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -326,20 +330,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://192.168.1.253:7047/Kewi/WS/KEWI%2520TRAINING/Codeunit/Staffportal">
+    <WebReferenceUrl Include="http://192.168.1.253:7047/Kewi/WS/KEWI/Codeunit/Staffportal">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\NAVWS\</RelPath>
-      <UpdateFromURL>http://192.168.1.253:7047/Kewi/WS/KEWI%2520TRAINING/Codeunit/Staffportal</UpdateFromURL>
+      <UpdateFromURL>http://192.168.1.253:7047/Kewi/WS/KEWI/Codeunit/Staffportal</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>KEWIStaff_NAVWS1_Staffportal</CachedSettingsPropName>
+      <CachedSettingsPropName>KEWIStaff_NAVWS_Staffportal</CachedSettingsPropName>
     </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Api\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

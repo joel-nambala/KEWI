@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/Studentportal" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/Studentportal" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/Studentportal" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="CheckPasswordChanged">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckPasswordChanged_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckValidStudentNo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckValidStudentNo_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GenerateBillRefNo">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GenerateBillRefNo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateFeesStatement">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileNameFromApp" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateFeesStatement_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GenerateReceipt">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="receiptNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileNameFromApp" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateReceipt_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetCourseRegistrationData">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCourseRegistrationData_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCurrentAcademicYear">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetCurrentAcademicYear_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCurrentSemesterDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetCurrentSemesterDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCurrentSemester">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetCurrentSemester_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetFeesStatement">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetFeesStatement_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPaymentReceipts">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPaymentReceipts_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetProgramName">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="progId" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetProgramName_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStudentCourseData">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStudentCourseData_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStudentDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStudentDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStudentFees">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStudentFees_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStudentStatus">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStudentStatus_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasUpdatedProfile">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasUpdatedProfile_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="IsStudentRegistered">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="IsStudentRegistered_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForChangedPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="password" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForChangedPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForUnchangedPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForUnchangedPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SavePesaFlowInvoice">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="refno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="invoiceno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="custno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="custname" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="invoiceamt" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="serviceid" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="desc" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="token" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="link" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SavePesaFlowInvoice_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateStudentPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="genpass" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateStudentPassword_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdateStudentProfile">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="idNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="phoneNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="gender" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="dob" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="county" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tribe" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="disability" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="disabilityDescription" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateStudentProfile_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="CheckPasswordChanged">
+    <part name="parameters" element="tns:CheckPasswordChanged" />
+  </message>
+  <message name="CheckPasswordChanged_Result">
+    <part name="parameters" element="tns:CheckPasswordChanged_Result" />
+  </message>
+  <message name="CheckValidStudentNo">
+    <part name="parameters" element="tns:CheckValidStudentNo" />
+  </message>
+  <message name="CheckValidStudentNo_Result">
+    <part name="parameters" element="tns:CheckValidStudentNo_Result" />
+  </message>
+  <message name="GenerateBillRefNo">
+    <part name="parameters" element="tns:GenerateBillRefNo" />
+  </message>
+  <message name="GenerateBillRefNo_Result">
+    <part name="parameters" element="tns:GenerateBillRefNo_Result" />
+  </message>
+  <message name="GenerateFeesStatement">
+    <part name="parameters" element="tns:GenerateFeesStatement" />
+  </message>
+  <message name="GenerateFeesStatement_Result">
+    <part name="parameters" element="tns:GenerateFeesStatement_Result" />
+  </message>
+  <message name="GenerateReceipt">
+    <part name="parameters" element="tns:GenerateReceipt" />
+  </message>
+  <message name="GenerateReceipt_Result">
+    <part name="parameters" element="tns:GenerateReceipt_Result" />
+  </message>
+  <message name="GetCourseRegistrationData">
+    <part name="parameters" element="tns:GetCourseRegistrationData" />
+  </message>
+  <message name="GetCourseRegistrationData_Result">
+    <part name="parameters" element="tns:GetCourseRegistrationData_Result" />
+  </message>
+  <message name="GetCurrentAcademicYear">
+    <part name="parameters" element="tns:GetCurrentAcademicYear" />
+  </message>
+  <message name="GetCurrentAcademicYear_Result">
+    <part name="parameters" element="tns:GetCurrentAcademicYear_Result" />
+  </message>
+  <message name="GetCurrentSemesterDetails">
+    <part name="parameters" element="tns:GetCurrentSemesterDetails" />
+  </message>
+  <message name="GetCurrentSemesterDetails_Result">
+    <part name="parameters" element="tns:GetCurrentSemesterDetails_Result" />
+  </message>
+  <message name="GetCurrentSemester">
+    <part name="parameters" element="tns:GetCurrentSemester" />
+  </message>
+  <message name="GetCurrentSemester_Result">
+    <part name="parameters" element="tns:GetCurrentSemester_Result" />
+  </message>
+  <message name="GetFeesStatement">
+    <part name="parameters" element="tns:GetFeesStatement" />
+  </message>
+  <message name="GetFeesStatement_Result">
+    <part name="parameters" element="tns:GetFeesStatement_Result" />
+  </message>
+  <message name="GetPaymentReceipts">
+    <part name="parameters" element="tns:GetPaymentReceipts" />
+  </message>
+  <message name="GetPaymentReceipts_Result">
+    <part name="parameters" element="tns:GetPaymentReceipts_Result" />
+  </message>
+  <message name="GetProgramName">
+    <part name="parameters" element="tns:GetProgramName" />
+  </message>
+  <message name="GetProgramName_Result">
+    <part name="parameters" element="tns:GetProgramName_Result" />
+  </message>
+  <message name="GetStudentCourseData">
+    <part name="parameters" element="tns:GetStudentCourseData" />
+  </message>
+  <message name="GetStudentCourseData_Result">
+    <part name="parameters" element="tns:GetStudentCourseData_Result" />
+  </message>
+  <message name="GetStudentDetails">
+    <part name="parameters" element="tns:GetStudentDetails" />
+  </message>
+  <message name="GetStudentDetails_Result">
+    <part name="parameters" element="tns:GetStudentDetails_Result" />
+  </message>
+  <message name="GetStudentFees">
+    <part name="parameters" element="tns:GetStudentFees" />
+  </message>
+  <message name="GetStudentFees_Result">
+    <part name="parameters" element="tns:GetStudentFees_Result" />
+  </message>
+  <message name="GetStudentStatus">
+    <part name="parameters" element="tns:GetStudentStatus" />
+  </message>
+  <message name="GetStudentStatus_Result">
+    <part name="parameters" element="tns:GetStudentStatus_Result" />
+  </message>
+  <message name="HasUpdatedProfile">
+    <part name="parameters" element="tns:HasUpdatedProfile" />
+  </message>
+  <message name="HasUpdatedProfile_Result">
+    <part name="parameters" element="tns:HasUpdatedProfile_Result" />
+  </message>
+  <message name="IsStudentRegistered">
+    <part name="parameters" element="tns:IsStudentRegistered" />
+  </message>
+  <message name="IsStudentRegistered_Result">
+    <part name="parameters" element="tns:IsStudentRegistered_Result" />
+  </message>
+  <message name="LoginForChangedPassword">
+    <part name="parameters" element="tns:LoginForChangedPassword" />
+  </message>
+  <message name="LoginForChangedPassword_Result">
+    <part name="parameters" element="tns:LoginForChangedPassword_Result" />
+  </message>
+  <message name="LoginForUnchangedPassword">
+    <part name="parameters" element="tns:LoginForUnchangedPassword" />
+  </message>
+  <message name="LoginForUnchangedPassword_Result">
+    <part name="parameters" element="tns:LoginForUnchangedPassword_Result" />
+  </message>
+  <message name="SavePesaFlowInvoice">
+    <part name="parameters" element="tns:SavePesaFlowInvoice" />
+  </message>
+  <message name="SavePesaFlowInvoice_Result">
+    <part name="parameters" element="tns:SavePesaFlowInvoice_Result" />
+  </message>
+  <message name="UpdateStudentPassword">
+    <part name="parameters" element="tns:UpdateStudentPassword" />
+  </message>
+  <message name="UpdateStudentPassword_Result">
+    <part name="parameters" element="tns:UpdateStudentPassword_Result" />
+  </message>
+  <message name="UpdateStudentProfile">
+    <part name="parameters" element="tns:UpdateStudentProfile" />
+  </message>
+  <message name="UpdateStudentProfile_Result">
+    <part name="parameters" element="tns:UpdateStudentProfile_Result" />
+  </message>
+  <portType name="Studentportal_Port">
+    <operation name="CheckPasswordChanged">
+      <input name="CheckPasswordChanged" message="tns:CheckPasswordChanged" />
+      <output name="CheckPasswordChanged_Result" message="tns:CheckPasswordChanged_Result" />
+    </operation>
+    <operation name="CheckValidStudentNo">
+      <input name="CheckValidStudentNo" message="tns:CheckValidStudentNo" />
+      <output name="CheckValidStudentNo_Result" message="tns:CheckValidStudentNo_Result" />
+    </operation>
+    <operation name="GenerateBillRefNo">
+      <input name="GenerateBillRefNo" message="tns:GenerateBillRefNo" />
+      <output name="GenerateBillRefNo_Result" message="tns:GenerateBillRefNo_Result" />
+    </operation>
+    <operation name="GenerateFeesStatement">
+      <input name="GenerateFeesStatement" message="tns:GenerateFeesStatement" />
+      <output name="GenerateFeesStatement_Result" message="tns:GenerateFeesStatement_Result" />
+    </operation>
+    <operation name="GenerateReceipt">
+      <input name="GenerateReceipt" message="tns:GenerateReceipt" />
+      <output name="GenerateReceipt_Result" message="tns:GenerateReceipt_Result" />
+    </operation>
+    <operation name="GetCourseRegistrationData">
+      <input name="GetCourseRegistrationData" message="tns:GetCourseRegistrationData" />
+      <output name="GetCourseRegistrationData_Result" message="tns:GetCourseRegistrationData_Result" />
+    </operation>
+    <operation name="GetCurrentAcademicYear">
+      <input name="GetCurrentAcademicYear" message="tns:GetCurrentAcademicYear" />
+      <output name="GetCurrentAcademicYear_Result" message="tns:GetCurrentAcademicYear_Result" />
+    </operation>
+    <operation name="GetCurrentSemesterDetails">
+      <input name="GetCurrentSemesterDetails" message="tns:GetCurrentSemesterDetails" />
+      <output name="GetCurrentSemesterDetails_Result" message="tns:GetCurrentSemesterDetails_Result" />
+    </operation>
+    <operation name="GetCurrentSemester">
+      <input name="GetCurrentSemester" message="tns:GetCurrentSemester" />
+      <output name="GetCurrentSemester_Result" message="tns:GetCurrentSemester_Result" />
+    </operation>
+    <operation name="GetFeesStatement">
+      <input name="GetFeesStatement" message="tns:GetFeesStatement" />
+      <output name="GetFeesStatement_Result" message="tns:GetFeesStatement_Result" />
+    </operation>
+    <operation name="GetPaymentReceipts">
+      <input name="GetPaymentReceipts" message="tns:GetPaymentReceipts" />
+      <output name="GetPaymentReceipts_Result" message="tns:GetPaymentReceipts_Result" />
+    </operation>
+    <operation name="GetProgramName">
+      <input name="GetProgramName" message="tns:GetProgramName" />
+      <output name="GetProgramName_Result" message="tns:GetProgramName_Result" />
+    </operation>
+    <operation name="GetStudentCourseData">
+      <input name="GetStudentCourseData" message="tns:GetStudentCourseData" />
+      <output name="GetStudentCourseData_Result" message="tns:GetStudentCourseData_Result" />
+    </operation>
+    <operation name="GetStudentDetails">
+      <input name="GetStudentDetails" message="tns:GetStudentDetails" />
+      <output name="GetStudentDetails_Result" message="tns:GetStudentDetails_Result" />
+    </operation>
+    <operation name="GetStudentFees">
+      <input name="GetStudentFees" message="tns:GetStudentFees" />
+      <output name="GetStudentFees_Result" message="tns:GetStudentFees_Result" />
+    </operation>
+    <operation name="GetStudentStatus">
+      <input name="GetStudentStatus" message="tns:GetStudentStatus" />
+      <output name="GetStudentStatus_Result" message="tns:GetStudentStatus_Result" />
+    </operation>
+    <operation name="HasUpdatedProfile">
+      <input name="HasUpdatedProfile" message="tns:HasUpdatedProfile" />
+      <output name="HasUpdatedProfile_Result" message="tns:HasUpdatedProfile_Result" />
+    </operation>
+    <operation name="IsStudentRegistered">
+      <input name="IsStudentRegistered" message="tns:IsStudentRegistered" />
+      <output name="IsStudentRegistered_Result" message="tns:IsStudentRegistered_Result" />
+    </operation>
+    <operation name="LoginForChangedPassword">
+      <input name="LoginForChangedPassword" message="tns:LoginForChangedPassword" />
+      <output name="LoginForChangedPassword_Result" message="tns:LoginForChangedPassword_Result" />
+    </operation>
+    <operation name="LoginForUnchangedPassword">
+      <input name="LoginForUnchangedPassword" message="tns:LoginForUnchangedPassword" />
+      <output name="LoginForUnchangedPassword_Result" message="tns:LoginForUnchangedPassword_Result" />
+    </operation>
+    <operation name="SavePesaFlowInvoice">
+      <input name="SavePesaFlowInvoice" message="tns:SavePesaFlowInvoice" />
+      <output name="SavePesaFlowInvoice_Result" message="tns:SavePesaFlowInvoice_Result" />
+    </operation>
+    <operation name="UpdateStudentPassword">
+      <input name="UpdateStudentPassword" message="tns:UpdateStudentPassword" />
+      <output name="UpdateStudentPassword_Result" message="tns:UpdateStudentPassword_Result" />
+    </operation>
+    <operation name="UpdateStudentProfile">
+      <input name="UpdateStudentProfile" message="tns:UpdateStudentProfile" />
+      <output name="UpdateStudentProfile_Result" message="tns:UpdateStudentProfile_Result" />
+    </operation>
+  </portType>
+  <binding name="Studentportal_Binding" type="tns:Studentportal_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="CheckPasswordChanged">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:CheckPasswordChanged" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CheckPasswordChanged">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CheckPasswordChanged_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CheckValidStudentNo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:CheckValidStudentNo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CheckValidStudentNo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CheckValidStudentNo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GenerateBillRefNo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GenerateBillRefNo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GenerateBillRefNo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GenerateBillRefNo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GenerateFeesStatement">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GenerateFeesStatement" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GenerateFeesStatement">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GenerateFeesStatement_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GenerateReceipt">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GenerateReceipt" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GenerateReceipt">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GenerateReceipt_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCourseRegistrationData">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GetCourseRegistrationData" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCourseRegistrationData">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCourseRegistrationData_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCurrentAcademicYear">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GetCurrentAcademicYear" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCurrentAcademicYear">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCurrentAcademicYear_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCurrentSemesterDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GetCurrentSemesterDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCurrentSemesterDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCurrentSemesterDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCurrentSemester">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GetCurrentSemester" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCurrentSemester">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCurrentSemester_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetFeesStatement">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GetFeesStatement" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetFeesStatement">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetFeesStatement_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetPaymentReceipts">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GetPaymentReceipts" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetPaymentReceipts">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetPaymentReceipts_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetProgramName">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GetProgramName" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetProgramName">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetProgramName_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStudentCourseData">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GetStudentCourseData" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStudentCourseData">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStudentCourseData_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStudentDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GetStudentDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStudentDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStudentDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStudentFees">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GetStudentFees" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStudentFees">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStudentFees_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStudentStatus">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:GetStudentStatus" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStudentStatus">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStudentStatus_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="HasUpdatedProfile">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:HasUpdatedProfile" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="HasUpdatedProfile">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="HasUpdatedProfile_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="IsStudentRegistered">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:IsStudentRegistered" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="IsStudentRegistered">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="IsStudentRegistered_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LoginForChangedPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:LoginForChangedPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LoginForChangedPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LoginForChangedPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LoginForUnchangedPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:LoginForUnchangedPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LoginForUnchangedPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LoginForUnchangedPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SavePesaFlowInvoice">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:SavePesaFlowInvoice" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SavePesaFlowInvoice">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SavePesaFlowInvoice_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateStudentPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:UpdateStudentPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateStudentPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateStudentPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateStudentProfile">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Studentportal:UpdateStudentProfile" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateStudentProfile">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateStudentProfile_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Studentportal">
+    <port name="Studentportal_Port" binding="tns:Studentportal_Binding">
+      <address location="http://192.168.1.253:7047/Kewi/WS/KEWI%20TRAINING/Codeunit/Studentportal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

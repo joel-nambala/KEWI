@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Fee Statement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mt-2 mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <h3>Fees Statement</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("index","dashboard")">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title small">Individual Fee Statemet</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive text-wrap" style="height: 35rem;">
+            <table class="table table-hover table-striped small">
+                <thead>
+                    <tr>
+                        <th>Posting Date</th>
+                        <th>Description</th>
+                        <th>Credit Amount</th>
+                        <th>Debit Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="statement"></tbody>
+                <tfoot>
+                    <tr>
+                        <th>Totals</th>
+                        <th></th>
+                        <th id="total-credit">0</th>
+                        <th id="total-debit">0</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const statementContainer = document.getElementById('statement');
+    const totalCredit = document.getElementById('total-credit');
+    const totalDebit = document.getElementById('total-debit');
+
+    const formartDate = function (date) {
+        return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'numeric', day: 'numeric' }).format(new Date(date));
+    }
+
+    const formartNumber = function (number) {
+        return new Intl.NumberFormat('en-US').format(number);
+    }
+
+    const getStudentFeesStatement = async function () {
+        const credits = [];
+        const debits = [];
+        const response = await fetch('/api/getfeestatement');
+        const result = await response.json();
+        let html = '';
+        result.reverse().forEach(item => {
+            credits.push(Number(item.CreditAmount));
+            debits.push(Number(item.DebitAmount));
+            return html += `
+            <tr>
+                <td>${formartDate(item.PostingDate)}</td>
+                <td>${item.Description}</td>
+                <td>${formartNumber(item.CreditAmount)}</td>
+                <td>${formartNumber(item.DebitAmount)}</td>
+            </tr>
+            `;
+        }    
+        );
+        statementContainer.innerHTML = '';
+        statementContainer.innerHTML = html;
+
+        totalCredit.textContent = formartNumber(credits.reduce((acc, cur) => acc + cur, 0));
+        totalDebit.textContent = formartNumber(debits.reduce((acc, cur) => acc + cur, 0));
+    }
+    getStudentFeesStatement();
+</script>

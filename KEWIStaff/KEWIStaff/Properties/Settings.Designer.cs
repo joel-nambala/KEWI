@@ -26,10 +26,10 @@ namespace KEWIStaff.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.1.253:7047/Kewi/WS/KEWI%20TRAINING/Codeunit/Staffportal")]
-        public string KEWIStaff_NAVWS1_Staffportal {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.1.253:7047/Kewi/WS/KEWI/Codeunit/Staffportal")]
+        public string KEWIStaff_NAVWS_Staffportal {
             get {
-                return ((string)(this["KEWIStaff_NAVWS1_Staffportal"]));
+                return ((string)(this["KEWIStaff_NAVWS_Staffportal"]));
             }
         }
     }

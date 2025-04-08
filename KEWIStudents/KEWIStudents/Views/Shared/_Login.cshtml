@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Joel Nambala" />
+    <meta name="description" content="Kenya Water Institute students portal" />
+    <title>@ViewBag.Title - Kenya Water Institute</title>
+    <link href="~/assets/images/logo.jpg" rel="icon" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid my-container d-flex justify-content-center align-items-center">
+        <div class="login-bg-video">
+            <video class="logo-video" autoplay muted loop>
+                <source src="~/assets/images/class.mp4" type="video/mp4" />
+            </video>
+        </div>
+        @RenderBody()
+    </div>
+
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/login.js"></script>
+</body>
+</html>

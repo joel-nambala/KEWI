@@ -16,6 +16,6 @@ namespace KEWIStaff.Models
         public string IdNumber { get; set; }
         public string EmailAddress { get; set; }
         public string PostalAddress { get; set; }
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }        
     }
 }

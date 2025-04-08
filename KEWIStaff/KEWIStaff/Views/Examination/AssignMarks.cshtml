@@ -1,0 +1,175 @@
+﻿
+@{
+    ViewBag.Title = "Assign Marks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Assign Marks</h5>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Assign Marks</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <form action="@Url.Action("submitoldmarks","examination")" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-label">Programme</label>
+                                <select name="Programme" class="form-control" required id="programme"></select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="form-label">Stage</label>
+                                <select name="Stage" class="form-control" required id="stage"></select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="form-label">Semester</label>
+                                <select name="Semester" class="form-control" required id="term"></select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="form-label">Unit</label>
+                                <select name="Unit" class="form-control" required id="unit"></select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="form-label">Campus</label>
+                                <select name="Campus" class="form-control" required id="campus"></select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="form-label">Academic Year</label>
+                                <select name="AcademicYear" class="form-control" required id="academic-year"></select>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const programmeContainer = document.getElementById('programme');
+    const stageContainer = document.getElementById('stage');
+    const termContainer = document.getElementById('term');
+    const unitContainer = document.getElementById('unit');
+    const campusContainer = document.getElementById('campus');
+    const academicYearContainer = document.getElementById('academic-year');
+
+    const getAcademicYears = async function () {
+        academicYearContainer.innerHTML = '';
+        const response = await fetch('/api/getacademicyears');
+        const data = await response.json();
+        let html = '';
+        data.forEach(function (item, i, arr) {
+            html += `<option value=${item.Code}>${item.Description}</option>`;
+        });
+        academicYearContainer.innerHTML = html;
+    }
+    getAcademicYears();
+
+    const getCampus = async function () {
+        campusContainer.innerHTML = '';
+        const response = await fetch('/api/getcampus');
+        const data = await response.json();
+        let html = '';
+        data.forEach(function (item, i, arr) {
+            html += `<option value=${item.Code}>${item.Description}</option>`;
+        });
+        campusContainer.innerHTML = html;
+    }
+    getCampus();
+
+    const getLecturerUnits = async function () {
+        unitContainer.innerHTML = '';
+        const programme = programmeContainer.value;
+        const stage = stageContainer.value;
+        const term = termContainer.value;
+        const response = await fetch(`/api/getlecturerunits?programme=${programme}&stage=${stage}&term=${term}`);
+        const result = await response.json();
+        let html = '';
+        result.forEach(function (item, i, arr) {
+            html += `<option value='${item.Code}'>${item.Description}</option>`
+        });
+        unitContainer.innerHTML = html;
+    }
+
+    const getLecturerTerms = async function () {
+        termContainer.innerHTML = '';
+        const programme = programmeContainer.value;
+        const stage = stageContainer.value;
+        const response = await fetch(`/api/getlecturerterms?programme=${programme}&stage=${stage}`);
+        const result = await response.json();
+        let html = '';
+        result.forEach(function (item, i, arr) {
+            html += `<option value='${item.Code}'>${item.Code}</option>`
+        });
+        termContainer.innerHTML = html;
+        getLecturerUnits();
+    }
+
+    const getLecturerStages = async function () {
+        stageContainer.innerHTML = '';
+        const programme = programmeContainer.value;
+        const response = await fetch(`/api/getlecturerstages?programme=${programme}`);
+        const result = await response.json();
+        let html = '';
+        result.forEach(function(item, i, arr) {
+            html += `<option value='${item.Code}'>${item.Code}</option>`
+        });
+        stageContainer.innerHTML = html;
+        getLecturerTerms();
+    }
+
+    const getLecturerProgrammes = async function () {
+        programmeContainer.innerHTML = '';
+        const response = await fetch('/api/getlecturerprogrammes');
+        const data = await response.json();
+        let html = '';
+        data.forEach(function (item, i, arr) {
+            html += `<option value=${item.Code}>${item.Description}</option>`;
+        });
+        programmeContainer.innerHTML = html;
+        getLecturerStages();
+    }
+    getLecturerProgrammes();
+    programmeContainer.addEventListener('change', getLecturerStages);
+    stageContainer.addEventListener('change', getLecturerTerms);
+    termContainer.addEventListener('change', getLecturerUnits);
+</script>

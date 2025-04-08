@@ -1,0 +1,261 @@
+﻿@model KEWIStaff.Models.OldExam
+@{
+    ViewBag.Title = "Enter Old Marks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Enter Marks</h5>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Enter Marks</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <form action="@Url.Action("submitoldexammarks","examination")" method="post">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label style="font-weight: bold;">Enter marks for: @Model.UnitDescription, @Model.Stage, @Model.Semester</label>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <label>CAT 1 - <span id="assignment">@Model.MaxCatScore</span></label>%<br />
+                                <label>Practical - <span id="cat">@Model.MaxPracticalScore</span></label>%<br />
+                                <label>Final Exam - <span id="final-exam">@Model.MaxExamScore</span></label>%<br />
+                            </div>
+                        </div>
+                        @if (ViewBag.markEntryDateline)
+                        {
+                            <div class="row mt-3">
+                                <input type="hidden" name="CatMarks" id="assignment-marks" />
+                                <input type="hidden" name="PracticalMarks" id="cat-marks" />
+                                <input type="hidden" name="ExamMarks" id="exam-marks" />
+                                <input type="hidden" name="Unit" class="form-control" value="@Model.Unit" id="unit" />
+                                <input type="hidden" name="Stage" class="form-control" value="@Model.Stage" id="stage" />
+                                <input type="hidden" name="Term" class="form-control" value="@Model.Semester" id="term" />
+                                <p style="visibility:hidden;" id="lock-cat-editing">@Model.LockCatEditing</p>
+                                <p style="visibility:hidden;" id="lock-exam-editing">@Model.LockExamEditing</p>
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table id="my-table" class="table table-hover small">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Student No</th>
+                                                    <th>Student Name</th>
+                                                    <th style="display: none;">Trans Id</th>
+                                                    <th>CAT 1</th>
+                                                    <th>Practical</th>
+                                                    <th>Final Exam</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var student in Model.LecturerStudents)
+                                                {
+                                                    <tr>
+                                                        <td>@student.Counter</td>
+                                                        <td>@student.StudentNo</td>
+                                                        <td>@student.StudentName</td>
+                                                        <td style="display:none;">@student.TransactionId</td>
+                                                        <td>
+                                                            <input type="number" class="form-control assignment w-100" placeholder="CAT" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" class="form-control cat w-100" placeholder="Practical" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" class="form-control final-exam w-100" placeholder="Final Exam" />
+                                                        </td>
+                                                        <td>
+                                                            <label class="text-success total-marks" style="font-weight: bold;"></label>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-12 d-flex justify-content-between align-items-center">
+                                    <a class="btn btn-primary text-capitalize text-white">Print marksheet</a>
+                                    <button type="submit" class="btn btn-success text-capitalize" onclick="return saveMarks()">Save marks</button>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        Mark entry dateline has passed. You cannot enter marks for this unit.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const marksTable = document.getElementById('my-table');
+    const assignmentContainer = document.getElementById('assignment');
+    const catContainer = document.getElementById('cat');
+    const examContainer = document.getElementById('final-exam');
+    const categoryAssignmentDOM = document.getElementById('assignment-marks');
+    const categoryCatDOM = document.getElementById('cat-marks');
+    const categoryExamDOM = document.getElementById('exam-marks');
+    const unitContainer = document.getElementById('unit');
+    const stageContainer = document.getElementById('stage');
+    const termContainer = document.getElementById('term');
+    const catEditing = document.getElementById('lock-cat-editing');
+    const examEditing = document.getElementById('lock-exam-editing');
+
+    const getScores = async function (studentNo, unit, stage, term, examType) {
+        const response = await fetch(`/api/getassignedscores?studentNo=${studentNo}&unit=${unit}&stage=${stage}&term=${term}&examType=${examType}`);
+        const result = await response.json();
+        return result;
+    }
+
+    const loadAssignedScores = async function () {
+        const unit = unitContainer.value;
+        const stage = stageContainer.value;
+        const term = termContainer.value;
+
+        const assignmentScore = marksTable.querySelectorAll('.assignment');
+        for (let i = 0; i < assignmentScore.length; i++) {
+            const rows = assignmentScore[i].parentElement.parentElement;
+            const studentNo = rows.cells[1].innerHTML;
+            const assignScore = await getScores(studentNo, unit, stage, term, 1);
+            const catScore = await getScores(studentNo, unit, stage, term, 3);
+            const finalScore = await getScores(studentNo, unit, stage, term, 4);
+            const totalScore = (Number(assignScore) + Number(catScore) + Number(finalScore));
+            const assignmentDOM = rows.cells[4].querySelector('.assignment');
+            const catDOM = rows.cells[5].querySelector('.cat');
+            const finalDOM = rows.cells[6].querySelector('.final-exam');
+            assignmentDOM.value = assignScore;
+            catDOM.value = catScore;
+            finalDOM.value = finalScore;
+            rows.cells[7].querySelector('.total-marks').textContent = Math.round(totalScore);
+
+            // Add restrictions
+            if (catEditing.textContent == "Yes") {
+                assignmentDOM.disabled = true;
+                catDOM.disabled = true;
+            } else {
+                assignmentDOM.disabled = false;
+                catDOM.disabled = false;
+            }
+
+            if (examEditing.textContent == "Yes") finalDOM.disabled = true;
+            else finalDOM.disabled = false;
+        }
+    }
+    loadAssignedScores();
+
+    const saveMarks = function () {
+        const inputs = marksTable.querySelectorAll('.assignment');
+
+        // CAT
+        let assignmentCategory = '';
+        for (let i = 0; i < inputs.length; i++) {
+            const rows = inputs[i].parentElement.parentElement;
+            const studentNo = rows.cells[0].innerHTML;
+            const transId = rows.cells[2].innerHTML;
+            const assignmentDOM = rows.cells[3].querySelector('.assignment');
+            const score = assignmentDOM.value;
+            if (Number(score) > Number(assignmentContainer.textContent)) {
+                alert('CAT marks cannot be more than maximum score!');
+                assignmentDOM.focus();
+                return false;
+            }
+
+            if (Number(score) < 0) {
+                alert('CAT marks cannot be less than 0!');
+                assignmentDOM.focus();
+                return false;
+            }
+            assignmentCategory += studentNo + '::' + transId + '::' + score + '[]';
+        }
+        categoryAssignmentDOM.value = '';
+        categoryAssignmentDOM.value = assignmentCategory;
+
+        // Practical
+        let catCategory = '';
+        for (let i = 0; i < inputs.length; i++) {
+            const rows = inputs[i].parentElement.parentElement;
+            const studentNo = rows.cells[0].innerHTML;
+            const transId = rows.cells[2].innerHTML;
+            const catDOM = rows.cells[4].querySelector('.cat');
+            const score = catDOM.value;
+            if (Number(score) > Number(catContainer.textContent)) {
+                alert('Practical marks cannot be more than maximum score!');
+                catDOM.focus();
+                return false;
+            }
+
+            if (Number(score) < 0) {
+                alert('Practical marks cannot be less than 0!');
+                catDOM.focus();
+                return false;
+            }
+            catCategory += studentNo + '::' + transId + '::' + score + '[]';
+        }
+        categoryCatDOM.value = '';
+        categoryCatDOM.value = catCategory;
+
+        // Final Exam
+        let examCategory = '';
+        for (let i = 0; i < inputs.length; i++) {
+            const rows = inputs[i].parentElement.parentElement;
+            const studentNo = rows.cells[0].innerHTML;
+            const transId = rows.cells[2].innerHTML;
+            const examDOM = rows.cells[5].querySelector('.final-exam');
+            const score = examDOM.value;
+            if (Number(score) > Number(examContainer.textContent)) {
+                alert('Exam marks cannot be more than maximum score!');
+                examDOM.focus();
+                return false;
+            }
+
+            if (Number(score) < 0) {
+                alert('Exam marks cannot be less than 0!');
+                examDOM.focus();
+                return false;
+            }
+            examCategory += studentNo + '::' + transId + '::' + score + '[]';
+        }
+        categoryExamDOM.value = '';
+        categoryExamDOM.value = examCategory;
+        return true;
+    }
+</script>

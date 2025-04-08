@@ -28,6 +28,62 @@
           <sequence />
         </complexType>
       </element>
+      <element name="GetAcademicYear">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetAcademicYear_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAcademicYears">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetAcademicYears_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssessmentCategories">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="unitCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssessmentCategories_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssignedScores">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unit" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="term" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="examType" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAssignedScores_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="GetCampus">
         <complexType>
           <sequence />
@@ -52,6 +108,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="GetDefaultProgramCategory">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="unit" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetDefaultProgramCategory_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="GetFinalExamMaxScore">
         <complexType>
           <sequence>
@@ -60,6 +130,37 @@
         </complexType>
       </element>
       <element name="GetFinalExamMaxScore_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLearningOutcomeName">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="unitCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="loCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLearningOutcomeName_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLearningOutcomeStudents">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="program" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unit" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLearningOutcomeStudents_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -145,6 +246,130 @@
           </sequence>
         </complexType>
       </element>
+      <element name="GetLoLearningOutcome">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="program" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="semester" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unit" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLoLearningOutcome_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLoProgrammes">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLoProgrammes_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLoSemester">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="program" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLoSemester_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLoStage">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="program" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLoStage_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLoUnits">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="program" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="semester" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLoUnits_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMaxScore">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="unitCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="assessmentCategory" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMaxScore_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMaxScores">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="progCat" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="type" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMaxScores_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetProgramCategory">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="progId" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetProgramCategory_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="GetProgrammeName">
         <complexType>
           <sequence>
@@ -153,6 +378,21 @@
         </complexType>
       </element>
       <element name="GetProgrammeName_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetSemesterDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="semester" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="academicYear" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetSemesterDetails_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -220,6 +460,27 @@
           </sequence>
         </complexType>
       </element>
+      <element name="GetSubmittedFormativeMarks">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unit" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="semester" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lecturer" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="program" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="learningOutcome" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="assessmentCategory" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetSubmittedFormativeMarks_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="GetUnitDescription">
         <complexType>
           <sequence>
@@ -231,6 +492,20 @@
         </complexType>
       </element>
       <element name="GetUnitDescription_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetUnitName">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="unitCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetUnitName_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -280,6 +555,89 @@
           </sequence>
         </complexType>
       </element>
+      <element name="SubmitCATMarks">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="prog" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="sem" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="units" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="catMark" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="reg_TransactonID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="academicYear" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lectName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SubmitCATMarks_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="SubmitExamMarks">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="prog" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="sem" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="units" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="catMark" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="reg_TransactonID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="academicYear" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lectName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SubmitExamMarks_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="SubmitFormativeResults">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unit" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="score" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="program" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lecturer" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="semester" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="learningOutcome" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="assessmentCategory" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SubmitFormativeResults_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="SubmitPracticalmarks">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="prog" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stage" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="sem" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="units" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="studentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="practicalMark" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="reg_TransactonID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="academicYear" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lectName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SubmitPracticalmarks_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
       <element name="SubmitSummativeResults">
         <complexType>
           <sequence>
@@ -325,6 +683,30 @@
   <message name="CheckValidStaffNo_Result">
     <part name="parameters" element="tns:CheckValidStaffNo_Result" />
   </message>
+  <message name="GetAcademicYear">
+    <part name="parameters" element="tns:GetAcademicYear" />
+  </message>
+  <message name="GetAcademicYear_Result">
+    <part name="parameters" element="tns:GetAcademicYear_Result" />
+  </message>
+  <message name="GetAcademicYears">
+    <part name="parameters" element="tns:GetAcademicYears" />
+  </message>
+  <message name="GetAcademicYears_Result">
+    <part name="parameters" element="tns:GetAcademicYears_Result" />
+  </message>
+  <message name="GetAssessmentCategories">
+    <part name="parameters" element="tns:GetAssessmentCategories" />
+  </message>
+  <message name="GetAssessmentCategories_Result">
+    <part name="parameters" element="tns:GetAssessmentCategories_Result" />
+  </message>
+  <message name="GetAssignedScores">
+    <part name="parameters" element="tns:GetAssignedScores" />
+  </message>
+  <message name="GetAssignedScores_Result">
+    <part name="parameters" element="tns:GetAssignedScores_Result" />
+  </message>
   <message name="GetCampus">
     <part name="parameters" element="tns:GetCampus" />
   </message>
@@ -337,11 +719,29 @@
   <message name="GetCurrentAcademicYear_Result">
     <part name="parameters" element="tns:GetCurrentAcademicYear_Result" />
   </message>
+  <message name="GetDefaultProgramCategory">
+    <part name="parameters" element="tns:GetDefaultProgramCategory" />
+  </message>
+  <message name="GetDefaultProgramCategory_Result">
+    <part name="parameters" element="tns:GetDefaultProgramCategory_Result" />
+  </message>
   <message name="GetFinalExamMaxScore">
     <part name="parameters" element="tns:GetFinalExamMaxScore" />
   </message>
   <message name="GetFinalExamMaxScore_Result">
     <part name="parameters" element="tns:GetFinalExamMaxScore_Result" />
+  </message>
+  <message name="GetLearningOutcomeName">
+    <part name="parameters" element="tns:GetLearningOutcomeName" />
+  </message>
+  <message name="GetLearningOutcomeName_Result">
+    <part name="parameters" element="tns:GetLearningOutcomeName_Result" />
+  </message>
+  <message name="GetLearningOutcomeStudents">
+    <part name="parameters" element="tns:GetLearningOutcomeStudents" />
+  </message>
+  <message name="GetLearningOutcomeStudents_Result">
+    <part name="parameters" element="tns:GetLearningOutcomeStudents_Result" />
   </message>
   <message name="GetLecturerProgrammes">
     <part name="parameters" element="tns:GetLecturerProgrammes" />
@@ -373,11 +773,65 @@
   <message name="GetLecturerUnits_Result">
     <part name="parameters" element="tns:GetLecturerUnits_Result" />
   </message>
+  <message name="GetLoLearningOutcome">
+    <part name="parameters" element="tns:GetLoLearningOutcome" />
+  </message>
+  <message name="GetLoLearningOutcome_Result">
+    <part name="parameters" element="tns:GetLoLearningOutcome_Result" />
+  </message>
+  <message name="GetLoProgrammes">
+    <part name="parameters" element="tns:GetLoProgrammes" />
+  </message>
+  <message name="GetLoProgrammes_Result">
+    <part name="parameters" element="tns:GetLoProgrammes_Result" />
+  </message>
+  <message name="GetLoSemester">
+    <part name="parameters" element="tns:GetLoSemester" />
+  </message>
+  <message name="GetLoSemester_Result">
+    <part name="parameters" element="tns:GetLoSemester_Result" />
+  </message>
+  <message name="GetLoStage">
+    <part name="parameters" element="tns:GetLoStage" />
+  </message>
+  <message name="GetLoStage_Result">
+    <part name="parameters" element="tns:GetLoStage_Result" />
+  </message>
+  <message name="GetLoUnits">
+    <part name="parameters" element="tns:GetLoUnits" />
+  </message>
+  <message name="GetLoUnits_Result">
+    <part name="parameters" element="tns:GetLoUnits_Result" />
+  </message>
+  <message name="GetMaxScore">
+    <part name="parameters" element="tns:GetMaxScore" />
+  </message>
+  <message name="GetMaxScore_Result">
+    <part name="parameters" element="tns:GetMaxScore_Result" />
+  </message>
+  <message name="GetMaxScores">
+    <part name="parameters" element="tns:GetMaxScores" />
+  </message>
+  <message name="GetMaxScores_Result">
+    <part name="parameters" element="tns:GetMaxScores_Result" />
+  </message>
+  <message name="GetProgramCategory">
+    <part name="parameters" element="tns:GetProgramCategory" />
+  </message>
+  <message name="GetProgramCategory_Result">
+    <part name="parameters" element="tns:GetProgramCategory_Result" />
+  </message>
   <message name="GetProgrammeName">
     <part name="parameters" element="tns:GetProgrammeName" />
   </message>
   <message name="GetProgrammeName_Result">
     <part name="parameters" element="tns:GetProgrammeName_Result" />
+  </message>
+  <message name="GetSemesterDetails">
+    <part name="parameters" element="tns:GetSemesterDetails" />
+  </message>
+  <message name="GetSemesterDetails_Result">
+    <part name="parameters" element="tns:GetSemesterDetails_Result" />
   </message>
   <message name="GetStaffDetails">
     <part name="parameters" element="tns:GetStaffDetails" />
@@ -403,11 +857,23 @@
   <message name="GetSubmittedExamMarks_Result">
     <part name="parameters" element="tns:GetSubmittedExamMarks_Result" />
   </message>
+  <message name="GetSubmittedFormativeMarks">
+    <part name="parameters" element="tns:GetSubmittedFormativeMarks" />
+  </message>
+  <message name="GetSubmittedFormativeMarks_Result">
+    <part name="parameters" element="tns:GetSubmittedFormativeMarks_Result" />
+  </message>
   <message name="GetUnitDescription">
     <part name="parameters" element="tns:GetUnitDescription" />
   </message>
   <message name="GetUnitDescription_Result">
     <part name="parameters" element="tns:GetUnitDescription_Result" />
+  </message>
+  <message name="GetUnitName">
+    <part name="parameters" element="tns:GetUnitName" />
+  </message>
+  <message name="GetUnitName_Result">
+    <part name="parameters" element="tns:GetUnitName_Result" />
   </message>
   <message name="IsLecturer">
     <part name="parameters" element="tns:IsLecturer" />
@@ -426,6 +892,30 @@
   </message>
   <message name="LoginForUnchangedPassword_Result">
     <part name="parameters" element="tns:LoginForUnchangedPassword_Result" />
+  </message>
+  <message name="SubmitCATMarks">
+    <part name="parameters" element="tns:SubmitCATMarks" />
+  </message>
+  <message name="SubmitCATMarks_Result">
+    <part name="parameters" element="tns:SubmitCATMarks_Result" />
+  </message>
+  <message name="SubmitExamMarks">
+    <part name="parameters" element="tns:SubmitExamMarks" />
+  </message>
+  <message name="SubmitExamMarks_Result">
+    <part name="parameters" element="tns:SubmitExamMarks_Result" />
+  </message>
+  <message name="SubmitFormativeResults">
+    <part name="parameters" element="tns:SubmitFormativeResults" />
+  </message>
+  <message name="SubmitFormativeResults_Result">
+    <part name="parameters" element="tns:SubmitFormativeResults_Result" />
+  </message>
+  <message name="SubmitPracticalmarks">
+    <part name="parameters" element="tns:SubmitPracticalmarks" />
+  </message>
+  <message name="SubmitPracticalmarks_Result">
+    <part name="parameters" element="tns:SubmitPracticalmarks_Result" />
   </message>
   <message name="SubmitSummativeResults">
     <part name="parameters" element="tns:SubmitSummativeResults" />
@@ -448,6 +938,22 @@
       <input name="CheckValidStaffNo" message="tns:CheckValidStaffNo" />
       <output name="CheckValidStaffNo_Result" message="tns:CheckValidStaffNo_Result" />
     </operation>
+    <operation name="GetAcademicYear">
+      <input name="GetAcademicYear" message="tns:GetAcademicYear" />
+      <output name="GetAcademicYear_Result" message="tns:GetAcademicYear_Result" />
+    </operation>
+    <operation name="GetAcademicYears">
+      <input name="GetAcademicYears" message="tns:GetAcademicYears" />
+      <output name="GetAcademicYears_Result" message="tns:GetAcademicYears_Result" />
+    </operation>
+    <operation name="GetAssessmentCategories">
+      <input name="GetAssessmentCategories" message="tns:GetAssessmentCategories" />
+      <output name="GetAssessmentCategories_Result" message="tns:GetAssessmentCategories_Result" />
+    </operation>
+    <operation name="GetAssignedScores">
+      <input name="GetAssignedScores" message="tns:GetAssignedScores" />
+      <output name="GetAssignedScores_Result" message="tns:GetAssignedScores_Result" />
+    </operation>
     <operation name="GetCampus">
       <input name="GetCampus" message="tns:GetCampus" />
       <output name="GetCampus_Result" message="tns:GetCampus_Result" />
@@ -456,9 +962,21 @@
       <input name="GetCurrentAcademicYear" message="tns:GetCurrentAcademicYear" />
       <output name="GetCurrentAcademicYear_Result" message="tns:GetCurrentAcademicYear_Result" />
     </operation>
+    <operation name="GetDefaultProgramCategory">
+      <input name="GetDefaultProgramCategory" message="tns:GetDefaultProgramCategory" />
+      <output name="GetDefaultProgramCategory_Result" message="tns:GetDefaultProgramCategory_Result" />
+    </operation>
     <operation name="GetFinalExamMaxScore">
       <input name="GetFinalExamMaxScore" message="tns:GetFinalExamMaxScore" />
       <output name="GetFinalExamMaxScore_Result" message="tns:GetFinalExamMaxScore_Result" />
+    </operation>
+    <operation name="GetLearningOutcomeName">
+      <input name="GetLearningOutcomeName" message="tns:GetLearningOutcomeName" />
+      <output name="GetLearningOutcomeName_Result" message="tns:GetLearningOutcomeName_Result" />
+    </operation>
+    <operation name="GetLearningOutcomeStudents">
+      <input name="GetLearningOutcomeStudents" message="tns:GetLearningOutcomeStudents" />
+      <output name="GetLearningOutcomeStudents_Result" message="tns:GetLearningOutcomeStudents_Result" />
     </operation>
     <operation name="GetLecturerProgrammes">
       <input name="GetLecturerProgrammes" message="tns:GetLecturerProgrammes" />
@@ -480,9 +998,45 @@
       <input name="GetLecturerUnits" message="tns:GetLecturerUnits" />
       <output name="GetLecturerUnits_Result" message="tns:GetLecturerUnits_Result" />
     </operation>
+    <operation name="GetLoLearningOutcome">
+      <input name="GetLoLearningOutcome" message="tns:GetLoLearningOutcome" />
+      <output name="GetLoLearningOutcome_Result" message="tns:GetLoLearningOutcome_Result" />
+    </operation>
+    <operation name="GetLoProgrammes">
+      <input name="GetLoProgrammes" message="tns:GetLoProgrammes" />
+      <output name="GetLoProgrammes_Result" message="tns:GetLoProgrammes_Result" />
+    </operation>
+    <operation name="GetLoSemester">
+      <input name="GetLoSemester" message="tns:GetLoSemester" />
+      <output name="GetLoSemester_Result" message="tns:GetLoSemester_Result" />
+    </operation>
+    <operation name="GetLoStage">
+      <input name="GetLoStage" message="tns:GetLoStage" />
+      <output name="GetLoStage_Result" message="tns:GetLoStage_Result" />
+    </operation>
+    <operation name="GetLoUnits">
+      <input name="GetLoUnits" message="tns:GetLoUnits" />
+      <output name="GetLoUnits_Result" message="tns:GetLoUnits_Result" />
+    </operation>
+    <operation name="GetMaxScore">
+      <input name="GetMaxScore" message="tns:GetMaxScore" />
+      <output name="GetMaxScore_Result" message="tns:GetMaxScore_Result" />
+    </operation>
+    <operation name="GetMaxScores">
+      <input name="GetMaxScores" message="tns:GetMaxScores" />
+      <output name="GetMaxScores_Result" message="tns:GetMaxScores_Result" />
+    </operation>
+    <operation name="GetProgramCategory">
+      <input name="GetProgramCategory" message="tns:GetProgramCategory" />
+      <output name="GetProgramCategory_Result" message="tns:GetProgramCategory_Result" />
+    </operation>
     <operation name="GetProgrammeName">
       <input name="GetProgrammeName" message="tns:GetProgrammeName" />
       <output name="GetProgrammeName_Result" message="tns:GetProgrammeName_Result" />
+    </operation>
+    <operation name="GetSemesterDetails">
+      <input name="GetSemesterDetails" message="tns:GetSemesterDetails" />
+      <output name="GetSemesterDetails_Result" message="tns:GetSemesterDetails_Result" />
     </operation>
     <operation name="GetStaffDetails">
       <input name="GetStaffDetails" message="tns:GetStaffDetails" />
@@ -500,9 +1054,17 @@
       <input name="GetSubmittedExamMarks" message="tns:GetSubmittedExamMarks" />
       <output name="GetSubmittedExamMarks_Result" message="tns:GetSubmittedExamMarks_Result" />
     </operation>
+    <operation name="GetSubmittedFormativeMarks">
+      <input name="GetSubmittedFormativeMarks" message="tns:GetSubmittedFormativeMarks" />
+      <output name="GetSubmittedFormativeMarks_Result" message="tns:GetSubmittedFormativeMarks_Result" />
+    </operation>
     <operation name="GetUnitDescription">
       <input name="GetUnitDescription" message="tns:GetUnitDescription" />
       <output name="GetUnitDescription_Result" message="tns:GetUnitDescription_Result" />
+    </operation>
+    <operation name="GetUnitName">
+      <input name="GetUnitName" message="tns:GetUnitName" />
+      <output name="GetUnitName_Result" message="tns:GetUnitName_Result" />
     </operation>
     <operation name="IsLecturer">
       <input name="IsLecturer" message="tns:IsLecturer" />
@@ -515,6 +1077,22 @@
     <operation name="LoginForUnchangedPassword">
       <input name="LoginForUnchangedPassword" message="tns:LoginForUnchangedPassword" />
       <output name="LoginForUnchangedPassword_Result" message="tns:LoginForUnchangedPassword_Result" />
+    </operation>
+    <operation name="SubmitCATMarks">
+      <input name="SubmitCATMarks" message="tns:SubmitCATMarks" />
+      <output name="SubmitCATMarks_Result" message="tns:SubmitCATMarks_Result" />
+    </operation>
+    <operation name="SubmitExamMarks">
+      <input name="SubmitExamMarks" message="tns:SubmitExamMarks" />
+      <output name="SubmitExamMarks_Result" message="tns:SubmitExamMarks_Result" />
+    </operation>
+    <operation name="SubmitFormativeResults">
+      <input name="SubmitFormativeResults" message="tns:SubmitFormativeResults" />
+      <output name="SubmitFormativeResults_Result" message="tns:SubmitFormativeResults_Result" />
+    </operation>
+    <operation name="SubmitPracticalmarks">
+      <input name="SubmitPracticalmarks" message="tns:SubmitPracticalmarks" />
+      <output name="SubmitPracticalmarks_Result" message="tns:SubmitPracticalmarks_Result" />
     </operation>
     <operation name="SubmitSummativeResults">
       <input name="SubmitSummativeResults" message="tns:SubmitSummativeResults" />
@@ -545,6 +1123,42 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="GetAcademicYear">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetAcademicYear" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetAcademicYear">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetAcademicYear_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetAcademicYears">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetAcademicYears" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetAcademicYears">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetAcademicYears_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetAssessmentCategories">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetAssessmentCategories" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetAssessmentCategories">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetAssessmentCategories_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetAssignedScores">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetAssignedScores" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetAssignedScores">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetAssignedScores_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="GetCampus">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetCampus" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="GetCampus">
@@ -563,12 +1177,39 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="GetDefaultProgramCategory">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetDefaultProgramCategory" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetDefaultProgramCategory">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetDefaultProgramCategory_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="GetFinalExamMaxScore">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetFinalExamMaxScore" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="GetFinalExamMaxScore">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="GetFinalExamMaxScore_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLearningOutcomeName">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLearningOutcomeName" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLearningOutcomeName">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLearningOutcomeName_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLearningOutcomeStudents">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLearningOutcomeStudents" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLearningOutcomeStudents">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLearningOutcomeStudents_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -617,12 +1258,93 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="GetLoLearningOutcome">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLoLearningOutcome" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLoLearningOutcome">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLoLearningOutcome_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLoProgrammes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLoProgrammes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLoProgrammes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLoProgrammes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLoSemester">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLoSemester" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLoSemester">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLoSemester_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLoStage">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLoStage" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLoStage">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLoStage_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLoUnits">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLoUnits" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLoUnits">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLoUnits_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMaxScore">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetMaxScore" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMaxScore">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMaxScore_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMaxScores">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetMaxScores" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMaxScores">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMaxScores_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetProgramCategory">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetProgramCategory" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetProgramCategory">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetProgramCategory_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="GetProgrammeName">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetProgrammeName" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="GetProgrammeName">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="GetProgrammeName_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetSemesterDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetSemesterDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetSemesterDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetSemesterDetails_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -662,12 +1384,30 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="GetSubmittedFormativeMarks">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetSubmittedFormativeMarks" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetSubmittedFormativeMarks">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetSubmittedFormativeMarks_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="GetUnitDescription">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetUnitDescription" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="GetUnitDescription">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="GetUnitDescription_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetUnitName">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetUnitName" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetUnitName">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetUnitName_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -698,6 +1438,42 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="SubmitCATMarks">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:SubmitCATMarks" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SubmitCATMarks">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SubmitCATMarks_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SubmitExamMarks">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:SubmitExamMarks" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SubmitExamMarks">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SubmitExamMarks_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SubmitFormativeResults">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:SubmitFormativeResults" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SubmitFormativeResults">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SubmitFormativeResults_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SubmitPracticalmarks">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:SubmitPracticalmarks" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SubmitPracticalmarks">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SubmitPracticalmarks_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="SubmitSummativeResults">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportal:SubmitSummativeResults" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="SubmitSummativeResults">
@@ -719,7 +1495,7 @@
   </binding>
   <service name="Staffportal">
     <port name="Staffportal_Port" binding="tns:Staffportal_Binding">
-      <address location="http://192.168.1.253:7047/Kewi/WS/KEWI%20TRAINING/Codeunit/Staffportal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <address location="http://192.168.1.253:7047/Kewi/WS/KEWI/Codeunit/Staffportal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>
   </service>
 </definitions>

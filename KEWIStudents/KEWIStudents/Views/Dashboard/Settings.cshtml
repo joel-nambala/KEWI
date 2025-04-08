@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card mt-4">
+    <div class="card-header">
+        <h4 class="card-title">Update your profile</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="student-no" placeholder="Student No" required>
+                    <label for="student-no">Student No</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" placeholder="Student Name" required>
+                    <label for="name">Student Name</label>
+                </div>
+            </div>            
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="id-number" placeholder="Id Number" required>
+                    <label for="id-number">Id Number</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <select class="form-control" id="gender" required>
+                        <option value="0">Male</option>
+                        <option value="1">Female</option>
+                    </select>
+                    <label for="gender">Gender</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <input type="date" class="form-control" id="dob" placeholder="Date of Birth" required>
+                    <label for="dob">Date of Birth</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="email" placeholder="Email Address" required>
+                    <label for="email">Email Address</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="phone" placeholder="Phone Number" required>
+                    <label for="phone">Phone Number</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <select class="form-control" id="county" required></select>
+                    <label for="county">County</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <select class="form-control" id="tribe" required></select>
+                    <label for="tribe">Tribe</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <button class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    flatpickr("#dob", {
+        minDate: "today"
+});
+</script>

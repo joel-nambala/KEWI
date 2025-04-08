@@ -33,11 +33,25 @@ namespace KEWIStaff.NAVWS {
         
         private System.Threading.SendOrPostCallback CheckValidStaffNoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetAcademicYearOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAcademicYearsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAssessmentCategoriesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAssignedScoresOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetCampusOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetCurrentAcademicYearOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetDefaultProgramCategoryOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetFinalExamMaxScoreOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetLearningOutcomeNameOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetLearningOutcomeStudentsOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetLecturerProgrammesOperationCompleted;
         
@@ -49,7 +63,25 @@ namespace KEWIStaff.NAVWS {
         
         private System.Threading.SendOrPostCallback GetLecturerUnitsOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetLoLearningOutcomeOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetLoProgrammesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetLoSemesterOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetLoStageOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetLoUnitsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetMaxScoreOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetMaxScoresOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetProgramCategoryOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetProgrammeNameOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetSemesterDetailsOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetStaffDetailsOperationCompleted;
         
@@ -59,13 +91,25 @@ namespace KEWIStaff.NAVWS {
         
         private System.Threading.SendOrPostCallback GetSubmittedExamMarksOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetSubmittedFormativeMarksOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetUnitDescriptionOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetUnitNameOperationCompleted;
         
         private System.Threading.SendOrPostCallback IsLecturerOperationCompleted;
         
         private System.Threading.SendOrPostCallback LoginForChangedPasswordOperationCompleted;
         
         private System.Threading.SendOrPostCallback LoginForUnchangedPasswordOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SubmitCATMarksOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SubmitExamMarksOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SubmitFormativeResultsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SubmitPracticalmarksOperationCompleted;
         
         private System.Threading.SendOrPostCallback SubmitSummativeResultsOperationCompleted;
         
@@ -75,7 +119,7 @@ namespace KEWIStaff.NAVWS {
         
         /// <remarks/>
         public Staffportal() {
-            this.Url = global::KEWIStaff.Properties.Settings.Default.KEWIStaff_NAVWS1_Staffportal;
+            this.Url = global::KEWIStaff.Properties.Settings.Default.KEWIStaff_NAVWS_Staffportal;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -116,13 +160,34 @@ namespace KEWIStaff.NAVWS {
         public event CheckValidStaffNoCompletedEventHandler CheckValidStaffNoCompleted;
         
         /// <remarks/>
+        public event GetAcademicYearCompletedEventHandler GetAcademicYearCompleted;
+        
+        /// <remarks/>
+        public event GetAcademicYearsCompletedEventHandler GetAcademicYearsCompleted;
+        
+        /// <remarks/>
+        public event GetAssessmentCategoriesCompletedEventHandler GetAssessmentCategoriesCompleted;
+        
+        /// <remarks/>
+        public event GetAssignedScoresCompletedEventHandler GetAssignedScoresCompleted;
+        
+        /// <remarks/>
         public event GetCampusCompletedEventHandler GetCampusCompleted;
         
         /// <remarks/>
         public event GetCurrentAcademicYearCompletedEventHandler GetCurrentAcademicYearCompleted;
         
         /// <remarks/>
+        public event GetDefaultProgramCategoryCompletedEventHandler GetDefaultProgramCategoryCompleted;
+        
+        /// <remarks/>
         public event GetFinalExamMaxScoreCompletedEventHandler GetFinalExamMaxScoreCompleted;
+        
+        /// <remarks/>
+        public event GetLearningOutcomeNameCompletedEventHandler GetLearningOutcomeNameCompleted;
+        
+        /// <remarks/>
+        public event GetLearningOutcomeStudentsCompletedEventHandler GetLearningOutcomeStudentsCompleted;
         
         /// <remarks/>
         public event GetLecturerProgrammesCompletedEventHandler GetLecturerProgrammesCompleted;
@@ -140,7 +205,34 @@ namespace KEWIStaff.NAVWS {
         public event GetLecturerUnitsCompletedEventHandler GetLecturerUnitsCompleted;
         
         /// <remarks/>
+        public event GetLoLearningOutcomeCompletedEventHandler GetLoLearningOutcomeCompleted;
+        
+        /// <remarks/>
+        public event GetLoProgrammesCompletedEventHandler GetLoProgrammesCompleted;
+        
+        /// <remarks/>
+        public event GetLoSemesterCompletedEventHandler GetLoSemesterCompleted;
+        
+        /// <remarks/>
+        public event GetLoStageCompletedEventHandler GetLoStageCompleted;
+        
+        /// <remarks/>
+        public event GetLoUnitsCompletedEventHandler GetLoUnitsCompleted;
+        
+        /// <remarks/>
+        public event GetMaxScoreCompletedEventHandler GetMaxScoreCompleted;
+        
+        /// <remarks/>
+        public event GetMaxScoresCompletedEventHandler GetMaxScoresCompleted;
+        
+        /// <remarks/>
+        public event GetProgramCategoryCompletedEventHandler GetProgramCategoryCompleted;
+        
+        /// <remarks/>
         public event GetProgrammeNameCompletedEventHandler GetProgrammeNameCompleted;
+        
+        /// <remarks/>
+        public event GetSemesterDetailsCompletedEventHandler GetSemesterDetailsCompleted;
         
         /// <remarks/>
         public event GetStaffDetailsCompletedEventHandler GetStaffDetailsCompleted;
@@ -155,7 +247,13 @@ namespace KEWIStaff.NAVWS {
         public event GetSubmittedExamMarksCompletedEventHandler GetSubmittedExamMarksCompleted;
         
         /// <remarks/>
+        public event GetSubmittedFormativeMarksCompletedEventHandler GetSubmittedFormativeMarksCompleted;
+        
+        /// <remarks/>
         public event GetUnitDescriptionCompletedEventHandler GetUnitDescriptionCompleted;
+        
+        /// <remarks/>
+        public event GetUnitNameCompletedEventHandler GetUnitNameCompleted;
         
         /// <remarks/>
         public event IsLecturerCompletedEventHandler IsLecturerCompleted;
@@ -165,6 +263,18 @@ namespace KEWIStaff.NAVWS {
         
         /// <remarks/>
         public event LoginForUnchangedPasswordCompletedEventHandler LoginForUnchangedPasswordCompleted;
+        
+        /// <remarks/>
+        public event SubmitCATMarksCompletedEventHandler SubmitCATMarksCompleted;
+        
+        /// <remarks/>
+        public event SubmitExamMarksCompletedEventHandler SubmitExamMarksCompleted;
+        
+        /// <remarks/>
+        public event SubmitFormativeResultsCompletedEventHandler SubmitFormativeResultsCompleted;
+        
+        /// <remarks/>
+        public event SubmitPracticalmarksCompletedEventHandler SubmitPracticalmarksCompleted;
         
         /// <remarks/>
         public event SubmitSummativeResultsCompletedEventHandler SubmitSummativeResultsCompleted;
@@ -231,6 +341,130 @@ namespace KEWIStaff.NAVWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetAcademicYear", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetAcademicYear_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetAcademicYear() {
+            object[] results = this.Invoke("GetAcademicYear", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAcademicYearAsync() {
+            this.GetAcademicYearAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetAcademicYearAsync(object userState) {
+            if ((this.GetAcademicYearOperationCompleted == null)) {
+                this.GetAcademicYearOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAcademicYearOperationCompleted);
+            }
+            this.InvokeAsync("GetAcademicYear", new object[0], this.GetAcademicYearOperationCompleted, userState);
+        }
+        
+        private void OnGetAcademicYearOperationCompleted(object arg) {
+            if ((this.GetAcademicYearCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAcademicYearCompleted(this, new GetAcademicYearCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetAcademicYears", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetAcademicYears_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetAcademicYears() {
+            object[] results = this.Invoke("GetAcademicYears", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAcademicYearsAsync() {
+            this.GetAcademicYearsAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetAcademicYearsAsync(object userState) {
+            if ((this.GetAcademicYearsOperationCompleted == null)) {
+                this.GetAcademicYearsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAcademicYearsOperationCompleted);
+            }
+            this.InvokeAsync("GetAcademicYears", new object[0], this.GetAcademicYearsOperationCompleted, userState);
+        }
+        
+        private void OnGetAcademicYearsOperationCompleted(object arg) {
+            if ((this.GetAcademicYearsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAcademicYearsCompleted(this, new GetAcademicYearsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetAssessmentCategories", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetAssessmentCategories_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetAssessmentCategories(string unitCode) {
+            object[] results = this.Invoke("GetAssessmentCategories", new object[] {
+                        unitCode});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAssessmentCategoriesAsync(string unitCode) {
+            this.GetAssessmentCategoriesAsync(unitCode, null);
+        }
+        
+        /// <remarks/>
+        public void GetAssessmentCategoriesAsync(string unitCode, object userState) {
+            if ((this.GetAssessmentCategoriesOperationCompleted == null)) {
+                this.GetAssessmentCategoriesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAssessmentCategoriesOperationCompleted);
+            }
+            this.InvokeAsync("GetAssessmentCategories", new object[] {
+                        unitCode}, this.GetAssessmentCategoriesOperationCompleted, userState);
+        }
+        
+        private void OnGetAssessmentCategoriesOperationCompleted(object arg) {
+            if ((this.GetAssessmentCategoriesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAssessmentCategoriesCompleted(this, new GetAssessmentCategoriesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetAssignedScores", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetAssignedScores_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetAssignedScores(string studentNo, string unit, string stage, string term, int examType) {
+            object[] results = this.Invoke("GetAssignedScores", new object[] {
+                        studentNo,
+                        unit,
+                        stage,
+                        term,
+                        examType});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAssignedScoresAsync(string studentNo, string unit, string stage, string term, int examType) {
+            this.GetAssignedScoresAsync(studentNo, unit, stage, term, examType, null);
+        }
+        
+        /// <remarks/>
+        public void GetAssignedScoresAsync(string studentNo, string unit, string stage, string term, int examType, object userState) {
+            if ((this.GetAssignedScoresOperationCompleted == null)) {
+                this.GetAssignedScoresOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAssignedScoresOperationCompleted);
+            }
+            this.InvokeAsync("GetAssignedScores", new object[] {
+                        studentNo,
+                        unit,
+                        stage,
+                        term,
+                        examType}, this.GetAssignedScoresOperationCompleted, userState);
+        }
+        
+        private void OnGetAssignedScoresOperationCompleted(object arg) {
+            if ((this.GetAssignedScoresCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAssignedScoresCompleted(this, new GetAssignedScoresCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetCampus", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetCampus_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string GetCampus() {
@@ -287,6 +521,36 @@ namespace KEWIStaff.NAVWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetDefaultProgramCategory", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetDefaultProgramCategory_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetDefaultProgramCategory(string unit) {
+            object[] results = this.Invoke("GetDefaultProgramCategory", new object[] {
+                        unit});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetDefaultProgramCategoryAsync(string unit) {
+            this.GetDefaultProgramCategoryAsync(unit, null);
+        }
+        
+        /// <remarks/>
+        public void GetDefaultProgramCategoryAsync(string unit, object userState) {
+            if ((this.GetDefaultProgramCategoryOperationCompleted == null)) {
+                this.GetDefaultProgramCategoryOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDefaultProgramCategoryOperationCompleted);
+            }
+            this.InvokeAsync("GetDefaultProgramCategory", new object[] {
+                        unit}, this.GetDefaultProgramCategoryOperationCompleted, userState);
+        }
+        
+        private void OnGetDefaultProgramCategoryOperationCompleted(object arg) {
+            if ((this.GetDefaultProgramCategoryCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetDefaultProgramCategoryCompleted(this, new GetDefaultProgramCategoryCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetFinalExamMaxScore", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetFinalExamMaxScore_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string GetFinalExamMaxScore(string unitCode) {
@@ -313,6 +577,72 @@ namespace KEWIStaff.NAVWS {
             if ((this.GetFinalExamMaxScoreCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetFinalExamMaxScoreCompleted(this, new GetFinalExamMaxScoreCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLearningOutcomeName", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetLearningOutcomeName_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetLearningOutcomeName(string unitCode, string loCode) {
+            object[] results = this.Invoke("GetLearningOutcomeName", new object[] {
+                        unitCode,
+                        loCode});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetLearningOutcomeNameAsync(string unitCode, string loCode) {
+            this.GetLearningOutcomeNameAsync(unitCode, loCode, null);
+        }
+        
+        /// <remarks/>
+        public void GetLearningOutcomeNameAsync(string unitCode, string loCode, object userState) {
+            if ((this.GetLearningOutcomeNameOperationCompleted == null)) {
+                this.GetLearningOutcomeNameOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetLearningOutcomeNameOperationCompleted);
+            }
+            this.InvokeAsync("GetLearningOutcomeName", new object[] {
+                        unitCode,
+                        loCode}, this.GetLearningOutcomeNameOperationCompleted, userState);
+        }
+        
+        private void OnGetLearningOutcomeNameOperationCompleted(object arg) {
+            if ((this.GetLearningOutcomeNameCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetLearningOutcomeNameCompleted(this, new GetLearningOutcomeNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLearningOutcomeStudents", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetLearningOutcomeStudents_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetLearningOutcomeStudents(string program, string unit, string lo) {
+            object[] results = this.Invoke("GetLearningOutcomeStudents", new object[] {
+                        program,
+                        unit,
+                        lo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetLearningOutcomeStudentsAsync(string program, string unit, string lo) {
+            this.GetLearningOutcomeStudentsAsync(program, unit, lo, null);
+        }
+        
+        /// <remarks/>
+        public void GetLearningOutcomeStudentsAsync(string program, string unit, string lo, object userState) {
+            if ((this.GetLearningOutcomeStudentsOperationCompleted == null)) {
+                this.GetLearningOutcomeStudentsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetLearningOutcomeStudentsOperationCompleted);
+            }
+            this.InvokeAsync("GetLearningOutcomeStudents", new object[] {
+                        program,
+                        unit,
+                        lo}, this.GetLearningOutcomeStudentsOperationCompleted, userState);
+        }
+        
+        private void OnGetLearningOutcomeStudentsOperationCompleted(object arg) {
+            if ((this.GetLearningOutcomeStudentsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetLearningOutcomeStudentsCompleted(this, new GetLearningOutcomeStudentsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -485,6 +815,270 @@ namespace KEWIStaff.NAVWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLoLearningOutcome", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetLoLearningOutcome_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetLoLearningOutcome(string username, string program, string stage, string semester, string unit) {
+            object[] results = this.Invoke("GetLoLearningOutcome", new object[] {
+                        username,
+                        program,
+                        stage,
+                        semester,
+                        unit});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetLoLearningOutcomeAsync(string username, string program, string stage, string semester, string unit) {
+            this.GetLoLearningOutcomeAsync(username, program, stage, semester, unit, null);
+        }
+        
+        /// <remarks/>
+        public void GetLoLearningOutcomeAsync(string username, string program, string stage, string semester, string unit, object userState) {
+            if ((this.GetLoLearningOutcomeOperationCompleted == null)) {
+                this.GetLoLearningOutcomeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetLoLearningOutcomeOperationCompleted);
+            }
+            this.InvokeAsync("GetLoLearningOutcome", new object[] {
+                        username,
+                        program,
+                        stage,
+                        semester,
+                        unit}, this.GetLoLearningOutcomeOperationCompleted, userState);
+        }
+        
+        private void OnGetLoLearningOutcomeOperationCompleted(object arg) {
+            if ((this.GetLoLearningOutcomeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetLoLearningOutcomeCompleted(this, new GetLoLearningOutcomeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLoProgrammes", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetLoProgrammes_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetLoProgrammes(string username) {
+            object[] results = this.Invoke("GetLoProgrammes", new object[] {
+                        username});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetLoProgrammesAsync(string username) {
+            this.GetLoProgrammesAsync(username, null);
+        }
+        
+        /// <remarks/>
+        public void GetLoProgrammesAsync(string username, object userState) {
+            if ((this.GetLoProgrammesOperationCompleted == null)) {
+                this.GetLoProgrammesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetLoProgrammesOperationCompleted);
+            }
+            this.InvokeAsync("GetLoProgrammes", new object[] {
+                        username}, this.GetLoProgrammesOperationCompleted, userState);
+        }
+        
+        private void OnGetLoProgrammesOperationCompleted(object arg) {
+            if ((this.GetLoProgrammesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetLoProgrammesCompleted(this, new GetLoProgrammesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLoSemester", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetLoSemester_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetLoSemester(string username, string program, string stage) {
+            object[] results = this.Invoke("GetLoSemester", new object[] {
+                        username,
+                        program,
+                        stage});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetLoSemesterAsync(string username, string program, string stage) {
+            this.GetLoSemesterAsync(username, program, stage, null);
+        }
+        
+        /// <remarks/>
+        public void GetLoSemesterAsync(string username, string program, string stage, object userState) {
+            if ((this.GetLoSemesterOperationCompleted == null)) {
+                this.GetLoSemesterOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetLoSemesterOperationCompleted);
+            }
+            this.InvokeAsync("GetLoSemester", new object[] {
+                        username,
+                        program,
+                        stage}, this.GetLoSemesterOperationCompleted, userState);
+        }
+        
+        private void OnGetLoSemesterOperationCompleted(object arg) {
+            if ((this.GetLoSemesterCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetLoSemesterCompleted(this, new GetLoSemesterCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLoStage", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetLoStage_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetLoStage(string username, string program) {
+            object[] results = this.Invoke("GetLoStage", new object[] {
+                        username,
+                        program});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetLoStageAsync(string username, string program) {
+            this.GetLoStageAsync(username, program, null);
+        }
+        
+        /// <remarks/>
+        public void GetLoStageAsync(string username, string program, object userState) {
+            if ((this.GetLoStageOperationCompleted == null)) {
+                this.GetLoStageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetLoStageOperationCompleted);
+            }
+            this.InvokeAsync("GetLoStage", new object[] {
+                        username,
+                        program}, this.GetLoStageOperationCompleted, userState);
+        }
+        
+        private void OnGetLoStageOperationCompleted(object arg) {
+            if ((this.GetLoStageCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetLoStageCompleted(this, new GetLoStageCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetLoUnits", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetLoUnits_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetLoUnits(string username, string program, string stage, string semester) {
+            object[] results = this.Invoke("GetLoUnits", new object[] {
+                        username,
+                        program,
+                        stage,
+                        semester});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetLoUnitsAsync(string username, string program, string stage, string semester) {
+            this.GetLoUnitsAsync(username, program, stage, semester, null);
+        }
+        
+        /// <remarks/>
+        public void GetLoUnitsAsync(string username, string program, string stage, string semester, object userState) {
+            if ((this.GetLoUnitsOperationCompleted == null)) {
+                this.GetLoUnitsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetLoUnitsOperationCompleted);
+            }
+            this.InvokeAsync("GetLoUnits", new object[] {
+                        username,
+                        program,
+                        stage,
+                        semester}, this.GetLoUnitsOperationCompleted, userState);
+        }
+        
+        private void OnGetLoUnitsOperationCompleted(object arg) {
+            if ((this.GetLoUnitsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetLoUnitsCompleted(this, new GetLoUnitsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetMaxScore", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetMaxScore_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetMaxScore(string unitCode, int assessmentCategory) {
+            object[] results = this.Invoke("GetMaxScore", new object[] {
+                        unitCode,
+                        assessmentCategory});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetMaxScoreAsync(string unitCode, int assessmentCategory) {
+            this.GetMaxScoreAsync(unitCode, assessmentCategory, null);
+        }
+        
+        /// <remarks/>
+        public void GetMaxScoreAsync(string unitCode, int assessmentCategory, object userState) {
+            if ((this.GetMaxScoreOperationCompleted == null)) {
+                this.GetMaxScoreOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetMaxScoreOperationCompleted);
+            }
+            this.InvokeAsync("GetMaxScore", new object[] {
+                        unitCode,
+                        assessmentCategory}, this.GetMaxScoreOperationCompleted, userState);
+        }
+        
+        private void OnGetMaxScoreOperationCompleted(object arg) {
+            if ((this.GetMaxScoreCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetMaxScoreCompleted(this, new GetMaxScoreCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetMaxScores", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetMaxScores_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetMaxScores(string progCat, int type) {
+            object[] results = this.Invoke("GetMaxScores", new object[] {
+                        progCat,
+                        type});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetMaxScoresAsync(string progCat, int type) {
+            this.GetMaxScoresAsync(progCat, type, null);
+        }
+        
+        /// <remarks/>
+        public void GetMaxScoresAsync(string progCat, int type, object userState) {
+            if ((this.GetMaxScoresOperationCompleted == null)) {
+                this.GetMaxScoresOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetMaxScoresOperationCompleted);
+            }
+            this.InvokeAsync("GetMaxScores", new object[] {
+                        progCat,
+                        type}, this.GetMaxScoresOperationCompleted, userState);
+        }
+        
+        private void OnGetMaxScoresOperationCompleted(object arg) {
+            if ((this.GetMaxScoresCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetMaxScoresCompleted(this, new GetMaxScoresCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetProgramCategory", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetProgramCategory_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetProgramCategory(string progId) {
+            object[] results = this.Invoke("GetProgramCategory", new object[] {
+                        progId});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetProgramCategoryAsync(string progId) {
+            this.GetProgramCategoryAsync(progId, null);
+        }
+        
+        /// <remarks/>
+        public void GetProgramCategoryAsync(string progId, object userState) {
+            if ((this.GetProgramCategoryOperationCompleted == null)) {
+                this.GetProgramCategoryOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetProgramCategoryOperationCompleted);
+            }
+            this.InvokeAsync("GetProgramCategory", new object[] {
+                        progId}, this.GetProgramCategoryOperationCompleted, userState);
+        }
+        
+        private void OnGetProgramCategoryOperationCompleted(object arg) {
+            if ((this.GetProgramCategoryCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetProgramCategoryCompleted(this, new GetProgramCategoryCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetProgrammeName", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetProgrammeName_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string GetProgrammeName(string progId) {
@@ -511,6 +1105,38 @@ namespace KEWIStaff.NAVWS {
             if ((this.GetProgrammeNameCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetProgrammeNameCompleted(this, new GetProgrammeNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetSemesterDetails", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetSemesterDetails_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetSemesterDetails(string semester, string academicYear) {
+            object[] results = this.Invoke("GetSemesterDetails", new object[] {
+                        semester,
+                        academicYear});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetSemesterDetailsAsync(string semester, string academicYear) {
+            this.GetSemesterDetailsAsync(semester, academicYear, null);
+        }
+        
+        /// <remarks/>
+        public void GetSemesterDetailsAsync(string semester, string academicYear, object userState) {
+            if ((this.GetSemesterDetailsOperationCompleted == null)) {
+                this.GetSemesterDetailsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSemesterDetailsOperationCompleted);
+            }
+            this.InvokeAsync("GetSemesterDetails", new object[] {
+                        semester,
+                        academicYear}, this.GetSemesterDetailsOperationCompleted, userState);
+        }
+        
+        private void OnGetSemesterDetailsOperationCompleted(object arg) {
+            if ((this.GetSemesterDetailsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetSemesterDetailsCompleted(this, new GetSemesterDetailsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -645,6 +1271,50 @@ namespace KEWIStaff.NAVWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetSubmittedFormativeMarks", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetSubmittedFormativeMarks_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetSubmittedFormativeMarks(string studentNo, string unit, string semester, string lecturer, string stage, string program, string learningOutcome, int assessmentCategory) {
+            object[] results = this.Invoke("GetSubmittedFormativeMarks", new object[] {
+                        studentNo,
+                        unit,
+                        semester,
+                        lecturer,
+                        stage,
+                        program,
+                        learningOutcome,
+                        assessmentCategory});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetSubmittedFormativeMarksAsync(string studentNo, string unit, string semester, string lecturer, string stage, string program, string learningOutcome, int assessmentCategory) {
+            this.GetSubmittedFormativeMarksAsync(studentNo, unit, semester, lecturer, stage, program, learningOutcome, assessmentCategory, null);
+        }
+        
+        /// <remarks/>
+        public void GetSubmittedFormativeMarksAsync(string studentNo, string unit, string semester, string lecturer, string stage, string program, string learningOutcome, int assessmentCategory, object userState) {
+            if ((this.GetSubmittedFormativeMarksOperationCompleted == null)) {
+                this.GetSubmittedFormativeMarksOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSubmittedFormativeMarksOperationCompleted);
+            }
+            this.InvokeAsync("GetSubmittedFormativeMarks", new object[] {
+                        studentNo,
+                        unit,
+                        semester,
+                        lecturer,
+                        stage,
+                        program,
+                        learningOutcome,
+                        assessmentCategory}, this.GetSubmittedFormativeMarksOperationCompleted, userState);
+        }
+        
+        private void OnGetSubmittedFormativeMarksOperationCompleted(object arg) {
+            if ((this.GetSubmittedFormativeMarksCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetSubmittedFormativeMarksCompleted(this, new GetSubmittedFormativeMarksCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetUnitDescription", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetUnitDescription_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string GetUnitDescription(string programme, string stage, string term, string unit) {
@@ -677,6 +1347,36 @@ namespace KEWIStaff.NAVWS {
             if ((this.GetUnitDescriptionCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetUnitDescriptionCompleted(this, new GetUnitDescriptionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:GetUnitName", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="GetUnitName_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GetUnitName(string unitCode) {
+            object[] results = this.Invoke("GetUnitName", new object[] {
+                        unitCode});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetUnitNameAsync(string unitCode) {
+            this.GetUnitNameAsync(unitCode, null);
+        }
+        
+        /// <remarks/>
+        public void GetUnitNameAsync(string unitCode, object userState) {
+            if ((this.GetUnitNameOperationCompleted == null)) {
+                this.GetUnitNameOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetUnitNameOperationCompleted);
+            }
+            this.InvokeAsync("GetUnitName", new object[] {
+                        unitCode}, this.GetUnitNameOperationCompleted, userState);
+        }
+        
+        private void OnGetUnitNameOperationCompleted(object arg) {
+            if ((this.GetUnitNameCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetUnitNameCompleted(this, new GetUnitNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -769,6 +1469,188 @@ namespace KEWIStaff.NAVWS {
             if ((this.LoginForUnchangedPasswordCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.LoginForUnchangedPasswordCompleted(this, new LoginForUnchangedPasswordCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:SubmitCATMarks", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="SubmitCATMarks_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SubmitCATMarks(string prog, string stage, string sem, string units, string studentNo, decimal catMark, string reg_TransactonID, string academicYear, string username, string lectName) {
+            this.Invoke("SubmitCATMarks", new object[] {
+                        prog,
+                        stage,
+                        sem,
+                        units,
+                        studentNo,
+                        catMark,
+                        reg_TransactonID,
+                        academicYear,
+                        username,
+                        lectName});
+        }
+        
+        /// <remarks/>
+        public void SubmitCATMarksAsync(string prog, string stage, string sem, string units, string studentNo, decimal catMark, string reg_TransactonID, string academicYear, string username, string lectName) {
+            this.SubmitCATMarksAsync(prog, stage, sem, units, studentNo, catMark, reg_TransactonID, academicYear, username, lectName, null);
+        }
+        
+        /// <remarks/>
+        public void SubmitCATMarksAsync(string prog, string stage, string sem, string units, string studentNo, decimal catMark, string reg_TransactonID, string academicYear, string username, string lectName, object userState) {
+            if ((this.SubmitCATMarksOperationCompleted == null)) {
+                this.SubmitCATMarksOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSubmitCATMarksOperationCompleted);
+            }
+            this.InvokeAsync("SubmitCATMarks", new object[] {
+                        prog,
+                        stage,
+                        sem,
+                        units,
+                        studentNo,
+                        catMark,
+                        reg_TransactonID,
+                        academicYear,
+                        username,
+                        lectName}, this.SubmitCATMarksOperationCompleted, userState);
+        }
+        
+        private void OnSubmitCATMarksOperationCompleted(object arg) {
+            if ((this.SubmitCATMarksCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SubmitCATMarksCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:SubmitExamMarks", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="SubmitExamMarks_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SubmitExamMarks(string prog, string stage, string sem, string units, string studentNo, decimal catMark, string reg_TransactonID, string academicYear, string username, string lectName) {
+            this.Invoke("SubmitExamMarks", new object[] {
+                        prog,
+                        stage,
+                        sem,
+                        units,
+                        studentNo,
+                        catMark,
+                        reg_TransactonID,
+                        academicYear,
+                        username,
+                        lectName});
+        }
+        
+        /// <remarks/>
+        public void SubmitExamMarksAsync(string prog, string stage, string sem, string units, string studentNo, decimal catMark, string reg_TransactonID, string academicYear, string username, string lectName) {
+            this.SubmitExamMarksAsync(prog, stage, sem, units, studentNo, catMark, reg_TransactonID, academicYear, username, lectName, null);
+        }
+        
+        /// <remarks/>
+        public void SubmitExamMarksAsync(string prog, string stage, string sem, string units, string studentNo, decimal catMark, string reg_TransactonID, string academicYear, string username, string lectName, object userState) {
+            if ((this.SubmitExamMarksOperationCompleted == null)) {
+                this.SubmitExamMarksOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSubmitExamMarksOperationCompleted);
+            }
+            this.InvokeAsync("SubmitExamMarks", new object[] {
+                        prog,
+                        stage,
+                        sem,
+                        units,
+                        studentNo,
+                        catMark,
+                        reg_TransactonID,
+                        academicYear,
+                        username,
+                        lectName}, this.SubmitExamMarksOperationCompleted, userState);
+        }
+        
+        private void OnSubmitExamMarksOperationCompleted(object arg) {
+            if ((this.SubmitExamMarksCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SubmitExamMarksCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:SubmitFormativeResults", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="SubmitFormativeResults_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SubmitFormativeResults(string studentNo, string unit, decimal score, string program, string lecturer, string stage, string semester, string learningOutcome, int assessmentCategory) {
+            this.Invoke("SubmitFormativeResults", new object[] {
+                        studentNo,
+                        unit,
+                        score,
+                        program,
+                        lecturer,
+                        stage,
+                        semester,
+                        learningOutcome,
+                        assessmentCategory});
+        }
+        
+        /// <remarks/>
+        public void SubmitFormativeResultsAsync(string studentNo, string unit, decimal score, string program, string lecturer, string stage, string semester, string learningOutcome, int assessmentCategory) {
+            this.SubmitFormativeResultsAsync(studentNo, unit, score, program, lecturer, stage, semester, learningOutcome, assessmentCategory, null);
+        }
+        
+        /// <remarks/>
+        public void SubmitFormativeResultsAsync(string studentNo, string unit, decimal score, string program, string lecturer, string stage, string semester, string learningOutcome, int assessmentCategory, object userState) {
+            if ((this.SubmitFormativeResultsOperationCompleted == null)) {
+                this.SubmitFormativeResultsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSubmitFormativeResultsOperationCompleted);
+            }
+            this.InvokeAsync("SubmitFormativeResults", new object[] {
+                        studentNo,
+                        unit,
+                        score,
+                        program,
+                        lecturer,
+                        stage,
+                        semester,
+                        learningOutcome,
+                        assessmentCategory}, this.SubmitFormativeResultsOperationCompleted, userState);
+        }
+        
+        private void OnSubmitFormativeResultsOperationCompleted(object arg) {
+            if ((this.SubmitFormativeResultsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SubmitFormativeResultsCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/Staffportal:SubmitPracticalmarks", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", ResponseElementName="SubmitPracticalmarks_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SubmitPracticalmarks(string prog, string stage, string sem, string units, string studentNo, decimal practicalMark, string reg_TransactonID, string academicYear, string username, string lectName) {
+            this.Invoke("SubmitPracticalmarks", new object[] {
+                        prog,
+                        stage,
+                        sem,
+                        units,
+                        studentNo,
+                        practicalMark,
+                        reg_TransactonID,
+                        academicYear,
+                        username,
+                        lectName});
+        }
+        
+        /// <remarks/>
+        public void SubmitPracticalmarksAsync(string prog, string stage, string sem, string units, string studentNo, decimal practicalMark, string reg_TransactonID, string academicYear, string username, string lectName) {
+            this.SubmitPracticalmarksAsync(prog, stage, sem, units, studentNo, practicalMark, reg_TransactonID, academicYear, username, lectName, null);
+        }
+        
+        /// <remarks/>
+        public void SubmitPracticalmarksAsync(string prog, string stage, string sem, string units, string studentNo, decimal practicalMark, string reg_TransactonID, string academicYear, string username, string lectName, object userState) {
+            if ((this.SubmitPracticalmarksOperationCompleted == null)) {
+                this.SubmitPracticalmarksOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSubmitPracticalmarksOperationCompleted);
+            }
+            this.InvokeAsync("SubmitPracticalmarks", new object[] {
+                        prog,
+                        stage,
+                        sem,
+                        units,
+                        studentNo,
+                        practicalMark,
+                        reg_TransactonID,
+                        academicYear,
+                        username,
+                        lectName}, this.SubmitPracticalmarksOperationCompleted, userState);
+        }
+        
+        private void OnSubmitPracticalmarksOperationCompleted(object arg) {
+            if ((this.SubmitPracticalmarksCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SubmitPracticalmarksCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -893,6 +1775,110 @@ namespace KEWIStaff.NAVWS {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetAcademicYearCompletedEventHandler(object sender, GetAcademicYearCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAcademicYearCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAcademicYearCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetAcademicYearsCompletedEventHandler(object sender, GetAcademicYearsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAcademicYearsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAcademicYearsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetAssessmentCategoriesCompletedEventHandler(object sender, GetAssessmentCategoriesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAssessmentCategoriesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAssessmentCategoriesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetAssignedScoresCompletedEventHandler(object sender, GetAssignedScoresCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAssignedScoresCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAssignedScoresCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void GetCampusCompletedEventHandler(object sender, GetCampusCompletedEventArgs e);
     
     /// <remarks/>
@@ -945,6 +1931,32 @@ namespace KEWIStaff.NAVWS {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetDefaultProgramCategoryCompletedEventHandler(object sender, GetDefaultProgramCategoryCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetDefaultProgramCategoryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetDefaultProgramCategoryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void GetFinalExamMaxScoreCompletedEventHandler(object sender, GetFinalExamMaxScoreCompletedEventArgs e);
     
     /// <remarks/>
@@ -956,6 +1968,58 @@ namespace KEWIStaff.NAVWS {
         private object[] results;
         
         internal GetFinalExamMaxScoreCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetLearningOutcomeNameCompletedEventHandler(object sender, GetLearningOutcomeNameCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetLearningOutcomeNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetLearningOutcomeNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetLearningOutcomeStudentsCompletedEventHandler(object sender, GetLearningOutcomeStudentsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetLearningOutcomeStudentsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetLearningOutcomeStudentsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1101,6 +2165,214 @@ namespace KEWIStaff.NAVWS {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetLoLearningOutcomeCompletedEventHandler(object sender, GetLoLearningOutcomeCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetLoLearningOutcomeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetLoLearningOutcomeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetLoProgrammesCompletedEventHandler(object sender, GetLoProgrammesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetLoProgrammesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetLoProgrammesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetLoSemesterCompletedEventHandler(object sender, GetLoSemesterCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetLoSemesterCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetLoSemesterCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetLoStageCompletedEventHandler(object sender, GetLoStageCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetLoStageCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetLoStageCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetLoUnitsCompletedEventHandler(object sender, GetLoUnitsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetLoUnitsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetLoUnitsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetMaxScoreCompletedEventHandler(object sender, GetMaxScoreCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetMaxScoreCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetMaxScoreCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetMaxScoresCompletedEventHandler(object sender, GetMaxScoresCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetMaxScoresCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetMaxScoresCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetProgramCategoryCompletedEventHandler(object sender, GetProgramCategoryCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetProgramCategoryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetProgramCategoryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void GetProgrammeNameCompletedEventHandler(object sender, GetProgrammeNameCompletedEventArgs e);
     
     /// <remarks/>
@@ -1112,6 +2384,32 @@ namespace KEWIStaff.NAVWS {
         private object[] results;
         
         internal GetProgrammeNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetSemesterDetailsCompletedEventHandler(object sender, GetSemesterDetailsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetSemesterDetailsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetSemesterDetailsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1231,6 +2529,32 @@ namespace KEWIStaff.NAVWS {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetSubmittedFormativeMarksCompletedEventHandler(object sender, GetSubmittedFormativeMarksCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetSubmittedFormativeMarksCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetSubmittedFormativeMarksCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void GetUnitDescriptionCompletedEventHandler(object sender, GetUnitDescriptionCompletedEventArgs e);
     
     /// <remarks/>
@@ -1242,6 +2566,32 @@ namespace KEWIStaff.NAVWS {
         private object[] results;
         
         internal GetUnitDescriptionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetUnitNameCompletedEventHandler(object sender, GetUnitNameCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetUnitNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetUnitNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1332,6 +2682,22 @@ namespace KEWIStaff.NAVWS {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SubmitCATMarksCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SubmitExamMarksCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SubmitFormativeResultsCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SubmitPracticalmarksCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]

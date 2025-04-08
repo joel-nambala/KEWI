@@ -1,0 +1,196 @@
+﻿@model KEWIStaff.Models.Examination
+@{
+    ViewBag.Title = "Formative Assessment Marks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Enter Marks</h5>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Enter Formative Assessment Marks</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <form action="@Url.Action("submitassessmentmarks","examination")" method="post">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label style="font-weight: bold;">Enter marks for: @Model.UnitDescription, @Model.Stage, @Model.Semester, Learning Outcome: @ViewBag.LearningOutcome</label>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <input type="hidden" name="AssessmentCategory" id="assessment-category" value="@Model.AssessmentCategory" />
+                                <label id="max-score-dom"></label>
+                            </div>
+                        </div>
+                        @if (ViewBag.markEntryDateline)
+                        {
+                            <div class="row mt-3">
+                                <input type="hidden" name="MarksCategory" id="marks-category" />
+                                <input type="hidden" name="Unit" class="form-control" value="@Model.Unit" id="unit" />
+                                <input type="hidden" name="Stage" class="form-control" value="@Model.Stage" id="stage" />
+                                <input type="hidden" name="Term" class="form-control" value="@Model.Semester" id="semester" />
+                                <input type="hidden" name="Programme" class="form-control" value="@Model.Programme" id="program" />
+                                <input type="hidden" name="LearningOutcome" class="form-control" value="@Model.LearningOutcome" id="learning-outcome" />
+                                <span style="visibility:hidden;" id="lock-cat-editing">@Model.LockCatEditing</span>
+                                <span style="visibility:hidden;" id="lock-exam-editing">@Model.LockExamEditing</span>
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table id="my-table" class="table table-hover small">
+                                            <thead>
+                                                <tr>
+                                                    <th>Student No</th>
+                                                    <th>Student Name</th>
+                                                    <th>Marks</th>
+                                                    <th style="display: none;">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var student in Model.LecturerStudents)
+                                                {
+                                                    <tr>
+                                                        <td>@student.StudentNo</td>
+                                                        <td>@student.StudentName</td>
+                                                        <td>
+                                                            <input type="number" class="form-control marks w-100" placeholder="Marks" />
+                                                        </td>
+                                                        <td style="display: none;">
+                                                            <label class="text-success total-marks" style="font-weight: bold;">70</label>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-12 d-flex justify-content-between align-items-center">
+                                    <a class="btn btn-primary text-capitalize text-white">Print marksheet</a>
+                                    <button type="submit" class="btn btn-success text-capitalize" onclick="return saveMarks()">Save marks</button>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        Mark entry dateline has passed. You cannot enter marks for this unit.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const assessmentCategoryDOM = document.getElementById('assessment-category');
+    const maxScoreDOM = document.getElementById('max-score-dom');
+    const unitContainer = document.getElementById('unit');
+    const stageContainer = document.getElementById('stage');
+    const semesterContainer = document.getElementById('semester');
+    const programContainer = document.getElementById('program');
+    const table = document.getElementById('my-table');
+    const marksCategory = document.getElementById('marks-category');
+    const learningOutcomeContainer = document.getElementById('learning-outcome');
+
+    const getAssignedScores = async function (studentNo, unit, semester, stage, program, learningOutcome, assessmentCategory) {
+        const response = await fetch(`/api/getsubmittedformativeexammarks?studentNo=${studentNo}&unit=${unit}&semester=${semester}&stage=${stage}&program=${program}&learningOutcome=${learningOutcome}&assessmentCategory=${assessmentCategory}`);
+        const data = await response.json();
+        return data;
+    }
+
+    const loadAssignedScores = async function () {
+        const inputs = table.querySelectorAll('.marks');
+        for (let i = 0; i < inputs.length; i++) {
+            const row = inputs[i].closest('tr');
+            const studentNo = row.cells[0].innerHTML;
+            const marksDOM = row.querySelector('.marks');
+            const unit = unitContainer.value;
+            const program = programContainer.value;
+            const semester = semesterContainer.value;
+            const stage = stageContainer.value;
+            const marks = marksDOM.value;
+            const assessmentCategory = assessmentCategoryDOM.value;
+            const learningOutcome = learningOutcomeContainer.value;
+
+            const score = await getAssignedScores(studentNo, unit, semester, stage, program, learningOutcome, assessmentCategory);
+            if (!score) continue;
+            marksDOM.value = score;
+        }
+    }
+    loadAssignedScores();
+
+    const getMaximumScore = async function () {
+        const assessmentCategory = assessmentCategoryDOM.value;
+        const unit = unitContainer.value;
+        const response = await fetch(`/api/getmaxscore?unit=${unit}&assessmentCategory=${assessmentCategory}`);
+        const data = await response.json();
+        if (assessmentCategory === "1") maxScoreDOM.innerHTML = `Practical - <span id="max-score">${data}</span>%`;
+        if (assessmentCategory === "2") maxScoreDOM.innerHTML = `Theory - <span id="max-score">${data}</span>%`;
+        if (assessmentCategory === "3") maxScoreDOM.innerHTML = `Report Presentation - <span id="max-score">${data}</span>%`;
+        if (assessmentCategory === "4") maxScoreDOM.innerHTML = `Supervisor Evaluation - <span id="max-score">${data}</span>%`;
+        if (assessmentCategory === "5") maxScoreDOM.innerHTML = `Proposal Defense - <span id="max-score">${data}</span>%`;
+        if (assessmentCategory === "6") maxScoreDOM.innerHTML = `Final Report - <span id="max-score">${data}</span>%`;
+        if (assessmentCategory === "7") maxScoreDOM.innerHTML = `Panel  Presentation - <span id="max-score">${data}</span>%`;
+    }
+    getMaximumScore();
+
+    const saveMarks = function () {
+        const maxScore = document.getElementById('max-score').textContent;
+        const inputs = table.querySelectorAll('.marks');
+        let message = '';
+        for (let i = 0; i < inputs.length; i++) {
+            const row = inputs[i].closest('tr');
+            const studentNo = row.cells[0].innerHTML;
+            const marksDOM = row.querySelector('.marks');
+            const unit = unitContainer.value;
+            const program = programContainer.value;
+            const semester = semesterContainer.value;
+            const stage = stageContainer.value;
+            const marks = marksDOM.value;
+            const assessmentCategory = assessmentCategoryDOM.value;
+
+            if (Number(marks) > Number(maxScore)) {
+                alert('Marks cannot be greater than maximum score!');
+                marksDOM.focus();
+                return false;
+            }
+
+            message += studentNo + '::' + program + '::' + stage + '::' + semester + '::' + unit + '::' + assessmentCategory + '::' + marks + '[]';
+        }
+        marksCategory.value = '';
+        marksCategory.value = message;
+        return true;
+    }
+</script>
